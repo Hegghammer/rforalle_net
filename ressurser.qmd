@@ -1,0 +1,18 @@
+---
+title: Ressurser
+---
+
+### Data
+
+All eksempelkode og -data ligger [her](https://github.com/Hegghammer/rbok). 
+
+
+### R-pakke
+
+R-pakken [rforalle](https://github.com/Hegghammer/rforalle) hjelper deg å laste ned eksempelkode og eksempeldata. Installér den med følgende kommando:
+
+```{r}
+#| eval: false
+devtools::install_github("hegghammer/rforalle")
+```
+

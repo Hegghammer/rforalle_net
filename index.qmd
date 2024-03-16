@@ -1,0 +1,30 @@
+---
+title: "Velkommen!"
+---
+
+:::: {layout="[ 50, 50 ]"}
+
+::: {#first-column}
+
+Dette er nettsiden til læreboken *R for alle: Innføring i programmering for kvalitative fag* av Thomas Hegghammer (Fagbokforlaget). Her vil du finne informasjon om boken og en del ekstramateriell.
+
+---
+
+- [Finn ut mer](om_boken.qmd)
+- [Les et utdrag](utdrag.qmd)
+- [Bestill](bestill.qmd)
+
+---
+
+#### Nyheter
+
+- Forventet publiseringsdato: juni 2024.
+
+:::
+
+::: {#second-column}
+![](images/cover.jpg)
+:::
+
+::::
+

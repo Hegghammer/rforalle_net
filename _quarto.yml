@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "R for alle"
+  navbar:
+    left:
+      - href: om_boken.qmd
+        text: Om boken
+      - href: utdrag.qmd
+        text: Utdrag
+      - href: ressurser.qmd
+        text: Ressurser
+      - href: blogg.qmd
+        text: Blogg
+      - href: bestill.qmd
+        text: Bestill
+lightbox: auto
+execute:
+  freeze: auto 
+format:
+  html:
+    lang: nb
+    theme: cosmo
+    css: styles.css
+    toc: false
+
+
+

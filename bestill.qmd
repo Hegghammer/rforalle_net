@@ -1,0 +1,28 @@
+---
+title: Bestill boken
+---
+
+:::: {layout="[ 60, 40 ]"}
+
+::: {#first-column}
+
+![](images/cover.jpg)
+
+:::
+
+::: {#second-column}
+- [Fra Fagbokforlaget.no](https://www.fagbokforlaget.no/R-for-alle/I9788245036862)
+
+- [Fra Norli.no](https://www.norli.no/boker/fagboker/samfunnsvitenskap/r-for-alle)
+
+- [Fra Akademika.no](https://www.akademika.no/teknologi/data-og-informasjonsteknologi/r-alle/9788245036862)
+
+- [Fra Bokkilden.no](https://www.bokkilden.no/dataprogram-for-kunst-og-humaniora/r-for-alle-thomas-hegghammer/produkt.do?produktId=112441653)
+
+- [Fra Ark.no](https://www.ark.no/produkt/boker/fagboker/r-for-alle-9788245036862)
+
+- [Fra Adlibris.com](https://www.adlibris.com/no/bok/r-for-alle-9788245036862)
+:::
+
+::::
+

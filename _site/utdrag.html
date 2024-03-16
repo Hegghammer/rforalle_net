@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nb" xml:lang="nb"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R for alle - Kapittel 6: Fremstill diagrammer</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "Samsvarende dokumenter",
+    "search-copy-link-title": "Kopier link for å søke",
+    "search-hide-matches-text": "Skjul ytterlige resultater",
+    "search-more-match-text": "annet resultat i dette dokumentet",
+    "search-more-matches-text": "andre resultater i dette dokumentet",
+    "search-clear-button-title": "Tøm",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Send inn",
+    "search-label": "Søk"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R for alle</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Søk"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Slå på navigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./om_boken.html"> 
+<span class="menu-text">Om boken</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./utdrag.html" aria-current="page"> 
+<span class="menu-text">Utdrag</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ressurser.html"> 
+<span class="menu-text">Ressurser</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./blogg.html"> 
+<span class="menu-text">Blogg</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./bestill.html"> 
+<span class="menu-text">Bestill</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Kapittel 6: Fremstill diagrammer</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>FORBEREDELSER</td>
+<td>- Opprett et R-prosjekt kalt <code>kap06</code> som en undermappe i mappen <code>rbok</code> og jobb derfra. - Installér pakkene du trenger med <code>install.packages(c("timelineS", "ggplot2", "ggeasy", "ggimage", "forcats", "ggraph", "DiagrammeR", "rsvg", "DiagrammeRsvg", "devtools"))</code> og <code>devtools::install_github("hegghammer/rforalle")</code>. - Last ned koden i dette kapittelet med <code>rforalle::hent_kode("kap06.R")</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>Det er ikke alt som kan fremstilles med grafer og kurver. For å visualisere kronologier, prosesser, eller relasjoner mellom ting, må vi ty til diagrammer av ulike slag, og her kan R være til stor hjelp. I dette kapittelet skal vi lære hvordan vi kan lage pene tidslinjer, prosessdiagrammer og andre diagramtyper i R. <a href="#fig-diagrammer" class="quarto-xref">Figur&nbsp;1</a> viser noen av illustrasjonene vi skal lage.</p>
+<div id="fig-diagrammer" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diagrammer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/kap06_tidslinje1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Tidslinje med timelineS"><img src="images/kap06_tidslinje1.png" class="img-fluid figure-img"></a></p>
+<figcaption>Tidslinje med <code>timelineS</code></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/kap06_tidslinje2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Tidslinje med ggplot2."><img src="images/kap06_tidslinje2.png" class="img-fluid figure-img"></a></p>
+<figcaption>Tidslinje med <code>ggplot2</code>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/kap06_gantt.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Gantt-diagram."><img src="images/kap06_gantt.png" class="img-fluid figure-img"></a></p>
+<figcaption>Gantt-diagram.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/kap06_dendro.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="Dendrogram."><img src="images/kap06_dendro.png" class="img-fluid figure-img"></a></p>
+<figcaption>Dendrogram.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diagrammer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1: Noen av diagrammene vi skal lage i dette kapittelet.
+</figcaption>
+</figure>
+</div>
+<section id="tidslinjer" class="level2">
+<h2 class="anchored" data-anchor-id="tidslinjer">Tidslinjer</h2>
+<p>Tenk deg at du er historielærer og trenger en kronologi over kjente slag i vikingtiden. Du kan alltids lage det i Excel, men du vil da være ganske bundet til Excels grafiske uttrykk, og prosessen vil involvere mye klikking som du ikke nødvendigvis husker til neste gang du trenger en tidslinje. Lager du den derimot med kode, er det nesten bare fantasien som setter grenser for det designmessige, og når du trenger en ny, kopierer du bare koden og justerer det som trengs. I R er det lett å lage pene, repliserbare tidslinjer, ikke minst med pakken <code>timelineS</code>.</p>
+<section id="timelines" class="level3">
+<h3 class="anchored" data-anchor-id="timelines"><code>timelineS</code></h3>
+<p><code>timelineS</code> (merk stavingen med stor S) gjør opptegning av tidslinjer til en lek. Det eneste du trenger er en dataramme med navn på hendelser i én kolonne og datoer i den andre. Du kan lett lage en slik dataramme selv, enten ved å bygge den opp med R-kode (se kapittel 4) eller fylle inn et regneark. Men til dette eksempelet skal vi bruke en CSV-fil som jeg har forberedt og som ligger i dataarkivet under navnet “kap06_slag.csv”. Vi kan laste den ned med <code>rforalle::hent_data()</code> og laste den inn i R med <code>read.csv()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rforalle)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hent_data</span>(<span class="st">"kap06_slag.csv"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Laster ned 'kap06_slag.csv' til /home/thomas/gitstuff/gitlab/rbok_nett ..</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_slag <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"slag.csv"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Deretter tar vi datarammen nærmere i øyesyn med <code>str()</code> og <code>head()</code> slik vi lærte i forrige kapittel at vi alltid bør gjøre. Om du vil, kan du også se på den med <code>View(df_slag)</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df_slag)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_slag)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vi ser at <code>df_slag</code> har seks rader og fire kolonner. Hver rad er en hendelse, og for hver rad har vi en hendelsesbeskrivelse (<code>navn</code>), et årstall (<code>år</code>), en lenke til et bilde (<code>bilde</code>) og opphavet til bildet (<code>kunstner</code>). Bildeinformasjonen er overflødig; det er egentlig bare hendelsesbeskrivelsen og årstallet vi trenger akkurat nå.</p>
+<p>Den eneste lille komplikasjonen er at <code>timelineS</code> vil ha tidspunkter som datoer i formatet “ÅÅÅÅ-MM-DD”, mens vår vektor <code>df_slag$år</code> bare inneholder årstall. Men vi kan omforme årstallene til datoer ved å legge til en fiktiv dato, f.eks. 1. juli. Til dette bruker vi bare <code>paste0()</code> og legger til strengen “-07-01”. I tillegg må vi omforme datostrengene våre til datatypen “date” med funksjonen <code>as.Date()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_slag<span class="sc">$</span>år <span class="ot">&lt;-</span> <span class="fu">paste0</span>(df_slag<span class="sc">$</span>år, <span class="st">"-07-01"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_slag<span class="sc">$</span>år <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(df_slag<span class="sc">$</span>år)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nå som vi har en kolonne med gyldige datoer, kan vi tegne opp tidslinjen med funksjonen <code>timelineS()</code> (se <a href="#fig-tid" class="quarto-xref">Figur&nbsp;2</a>). <code>timelineS()</code> trenger i utgangspunktet bare en dataramme som argument. Så lenge første kolonne er hendelsesbeskrivelser og andre kolonne er datoer, gjør funksjonen resten selv.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(timelineS)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">timelineS</span>(df_slag)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-tid" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-tid-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="utdrag_files/figure-html/fig-tid-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;2: Tidslinje i <code>timelineS</code> uten modifikasjoner.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Vi ser at dette skal være en tidslinje, men det er mye som bør rettes på. Det er for mange vertikale markører langs tidslinjen, og årstallene er ikke runde tall. Vi bør også ta bort datoene fra hendelsesbeskrivelsene og legge på en tittel. Litt farger hadde også gjort seg. Alt dette kan ordnes med parametere inni funksjonen <code>timelineS</code>, for eksempel som følger (se <a href="#fig-tid2" class="quarto-xref">Figur&nbsp;3</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">timelineS</span>(df_slag,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Kjente slag i vikingtiden"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">buffer.days =</span> <span class="dv">8000</span>, <span class="co"># Antall dager forlengelse på hver side</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">line.width =</span> <span class="dv">5</span>, <span class="co"># Tykkelse på tidslinjen</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">line.color =</span> <span class="st">"darkgreen"</span>, <span class="co"># Farge på tidslinjen</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale =</span> <span class="st">"20 years"</span>, <span class="co"># Intervaller langs tidslinjen</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale.cex =</span> <span class="dv">1</span>, <span class="co"># Fontstørrelsen på årstallene langs tidslinjen</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale.tickwidth =</span> <span class="dv">3</span>, <span class="co"># Tykkelsen på de vertikale taggene </span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">paste</span>(df_slag[[<span class="dv">1</span>]]), <span class="co"># Hvilke data som skal utgjøre teksten</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.color =</span> <span class="st">"orange"</span>, <span class="co"># Farge på linjen mellom hovedlinjen og titlene</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.cex =</span> <span class="dv">1</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">point.color =</span> <span class="st">"red"</span>, <span class="co"># Farge på punktmarkøren</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-tid2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tid2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-tid2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="utdrag_files/figure-html/fig-tid2-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tid2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;3: Tilpasset tidslinje i <code>timelineS</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Under panseret bruker <code>timelineS</code> funksjonen <code>plot()</code> fra grunninstallasjonen, så vi kan lagre tidslinjen til et bilde ved å kjøre koden igjen mellom <code>png()</code> og <code>dev.off()</code> slik vi lærte i kapittel 5. Koden vil se ut som følger. Merk at hvis du øker bildets bredde og høyde, vil fonten fremstå mindre, og vice-versa.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"tidslinje.png"</span>, <span class="at">width =</span> <span class="dv">1000</span>, <span class="at">height =</span> <span class="dv">600</span>, <span class="at">units =</span> <span class="st">"px"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">timelineS</span>(df_slag,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Kjente slag i vikingtiden"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">buffer.days =</span> <span class="dv">8000</span>, <span class="co"># Antall dager forlengelse på hver side</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">line.width =</span> <span class="dv">5</span>, <span class="co"># Tykkelse på tidslinjen</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">line.color =</span> <span class="st">"darkgreen"</span>, <span class="co"># Farge på tidslinjen</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale =</span> <span class="st">"20 years"</span>, <span class="co"># Intervaller langs tidslinjen</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale.cex =</span> <span class="dv">1</span>, <span class="co"># Fontstørrelsen på årstallene langs tidslinjen</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale.tickwidth =</span> <span class="dv">3</span>, <span class="co"># Tykkelsen på de vertikale taggene </span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">paste</span>(df_slag[[<span class="dv">1</span>]]), <span class="co"># Hvilke data som skal utgjøre teksten</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.color =</span> <span class="st">"orange"</span>, <span class="co"># Farge på linjen mellom hovedlinjen og titlene</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.cex =</span> <span class="dv">1</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">point.color =</span> <span class="st">"red"</span>, <span class="co"># Farge på punktmarkøren</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ifølge dokumentasjonen til pakken <code>timelineS</code> kan vi gjøre flere andre typer justeringer. Vi kan for eksempel endre tekstens font, farge og vinkel, justere lengden på hver enkel av de vertikale linjene og bestemme hva som skal være over og under hovedlinjen. Når dette er sagt, er vi fortsatt ganske låst til de overordnede designvalgene til utvikleren av <code>timelineS</code>. For å få full kontroll over utseendet til tidslinjen, må vi lage den fra bunnen med <code>ggplot2</code>.</p>
+</section>
+<section id="ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="ggplot2"><code>ggplot2</code></h3>
+<p>Å lage tidslinje i <code>ggplot2</code> er litt mer arbeid, men til gjengjeld gir det betydelig større muligheter for tilpasninger. Vi kan prøve å lage en variant av den samme tidslinjen. Her er det viktig å laste inn datarammen på nytt, fordi vi endret på en av variablene (<code>df_slag$år</code>) i forrige del. Hvis du ikke gjør dette, vil du få feilmelding nedenfor.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_slag <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"slag.csv"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Enkelt fortalt involverer prosessen fem steg. Steg 1 er å tegne opp en enkel linje midt på lerretet. Som med alt annet i <code>ggplot2</code>, må vi tenke på lerretet som et koordinatsystem med en x- og en y-akse. Vi står fritt til å definere hva verdiene på disse aksene skal være, så det første vi må gjøre er å bestemme oss for hva yttergrensene på aksene skal være. Siden x-aksen skal bestå av årstall, velger vi et startpunkt som er litt før det laveste årstallet og et sluttpunkt som er litt etter det høyeste årstallet, for eksempel slik:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>start <span class="ot">&lt;-</span> <span class="dv">800</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>slutt <span class="ot">&lt;-</span> <span class="dv">1100</span></span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Y-aksen, derimot, henger sammen med lengden på de vertikale strekene eller stolpene som skal markere hendelser. Hvilke verdier du setter på y-aksen avhenger av hvor mye variasjon du ser for deg å ha på lengden av disse stolpene. Vi skal bare ha to ulike lengder over og under linjen. I tillegg vil vi ha litt luft over og under, så vi kan tenke at vi skal ha tre nivåer over og under. Vi definerer derfor en variabel som er delelig med tre og kaller den <code>makshøyde</code>. Vi bruker tallet 3 slik at vi får runde tall (1 og 2) når vi skal sette lengden på stolpene.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>makshøyde <span class="ot">&lt;-</span> <span class="dv">3</span></span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nå kan vi tegne opp lerretet og en enkel linje. For å lage linjen bruker vi <code>geom_segment()</code>, som tar parametrene <code>x</code> og <code>y</code> for punktet hvor linjen starter og <code>xend</code> og <code>yend</code> for punktet hvor linjen slutter. Siden linjen skal gå rett horisontalt, setter vi verdien 0 for både <code>y</code> og <code>yend</code>. For <code>x</code> og <code>xend</code> bruker vi variablene <code>start</code> og <code>slutt</code> som vi nettopp laget. I tillegg legger vi inn parametere for tykkelse og farge på linjen, samt litt kode for å få pilspisser i hver ende.</p>
+<p>For å tegne y-aksen, bruker vi funksjonen <code>scale_y_continuous()</code> og parameteret <code>limits</code> (se <a href="#fig-linje" class="quarto-xref">Figur&nbsp;4</a>). Vi vil at y-aksen skal gå til 3 over linjen og til -3 under linjen, og siden vi har lagret tallet 3 i variabelen <code>makshøyde</code> kan vi bruke den når vi setter verdien <code>limits</code> (vi bare setter et minustegn foran for å få -3). Vi lagrer denne første opptegningen i objektet <code>linje</code> fordi vi skal bygge videre på det etterpå.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>linje <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> start, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> slutt, </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> <span class="dv">0</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                   ), </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>, </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"purple"</span>, </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">ends =</span> <span class="st">"both"</span>, <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.3</span>, <span class="st">"cm"</span>))</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>               ) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span>makshøyde, makshøyde))</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>linje</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-linje" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-linje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-linje-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="utdrag_files/figure-html/fig-linje-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;4: Steg 1 i bygging av tidslinje med <code>ggplot()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Steg to er å tegne årstall på linjen og lage små merker eller horisontale tagger for hvert av tallene. Her må vi lage en oss en tallserie med intervaller som samsvarer med avstanden vi ønsker å ha mellom hvert årstall. Vi kan gjøre som i forrige tidslinje og ha 20 år mellom hvert årstall. For å lage tallserien kan vi bruke funksjonen <code>seq()</code>, som tar tre argumenter: første tall, siste tall, og lengden på intervallet. Vi vil imidlertid ikke ha merke på ytterpunktene, for der er det pilspiss, så vi starter i 820 og slutter i 1080.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>merker <span class="ot">&lt;-</span> <span class="fu">seq</span>(start <span class="sc">+</span> <span class="dv">20</span>, slutt <span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For å tegne på årstallene, bruker vi funksjonen <code>annotate()</code>, som vi ble introdusert for i forrige kapittel. Når vi skal bruke <code>annotate()</code> til å tegne på tekst, er det tre hovedparametere som gjelder: <code>x</code> og <code>y</code> for stedet hvor teksten skal stå og <code>label</code> for selve teksten som skal påtegnes. Så er det slik at <code>ggplot2</code>-funksjoner som <code>annotate()</code> kan brukes til å sette inn mange ting på én gang, så lenge vi setter inn vektorer som verdier for de aktuelle parametrene. Vi kan derfor sette inn alle tallene i vektoren <code>merker</code> ved å oppgi den som verdi for parameteret <code>label</code>. Siden disse tallene også tilsvarer stedene langs x-aksen hvor tallene skal stå, kan vi bruke <code>merker</code> som verdi for parameteret <code>x</code>. Vi vil ha tallene bittelitt under linjen, så vi setter <code>y</code> til et lavt negativt tall.</p>
+<p>For å tegne opp merkene langs linjen, bruker vi igjen <code>geom_segment()</code> (se <a href="#fig-tallinje" class="quarto-xref">Figur&nbsp;5</a>). Denne gangen går strekene vertikalt, så verdiene for <code>x</code> og <code>xend</code> skal være de samme, mens verdiene for <code>y</code> og <code>yend</code> må være forskjellige. For å få en liten strek på alle x-verdiene i <code>merker</code>, putter vi bare objektet <code>merker</code> inn som verdi for <code>x</code> og <code>xend</code>. Vi setter <code>y</code> til 0 og <code>yend</code> til et lavt negativt tall ettersom strekene bare skal være en millimeter eller to lange.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tallinje <span class="ot">&lt;-</span> linje <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> merker, </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="sc">-</span>.<span class="dv">2</span>, </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> merker, </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> merker, </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> merker, </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> <span class="sc">-</span>.<span class="dv">08</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>                   ),</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>, </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"purple"</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>               )</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>tallinje</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-tallinje" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tallinje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-tallinje-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="utdrag_files/figure-html/fig-tallinje-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tallinje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;5: Steg 2 i bygging av tidslinje med <code>ggplot()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Steg tre er å tegne opp stolpene som skal gå fra hovedlinjen og ut til hendelsesbeskrivelsene. For å tegne disse må vi lage en vektor med tall som spesifiserer hvor langt ut fra hovedlinjen hver vertikale linje skal gå. Denne vektoren, som vi kan kalle <code>høyde</code>, må ha like mange verdier som det er hendelser som skal påtegnes. Verdiene må være mindre enn yttergrensene på y-aksen, altså mindre enn tallet vi satte som <code>makshøyde</code>, dvs 3. Nøyaktig hvilke verdier du velger, avhenger av hvor du vil ha lave og høye stolper. Her kan du prøve deg litt fram, men vi tester med følgende tallserie.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>høyder <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vi bruker så disse verdiene inn i <code>geom_segment()</code> en gang til. De går inn som verdier i parameteret <code>yend</code> slik at vi får vertikale streker fra hovedlinjen (<code>y = 0</code>) ut til høydene vi har satt (se <a href="#fig-stolper" class="quarto-xref">Figur&nbsp;6</a>). For å få strekene på riktig sted langs x-aksen, bruker vi årstallene i kolonnen <code>df_slag$år</code> som verdier for <code>x</code> og <code>xend</code>. Vi vil også ha sirkler der de vertikale strekene møter hovedlinjen; til dette bruker vi <code>geom_point()</code> med <code>df_slag$år</code> som verdier for <code>x</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>stolper <span class="ot">&lt;-</span> tallinje <span class="sc">+</span>  </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> høyder, </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">x =</span> df_slag<span class="sc">$</span>år, </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> df_slag<span class="sc">$</span>år</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                   ), </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> df_slag<span class="sc">$</span>år, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">size =</span> <span class="dv">2</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>stolper</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-stolper" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-stolper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-stolper-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="utdrag_files/figure-html/fig-stolper-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stolper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6: Steg 3 i bygging av tidslinje med <code>ggplot()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Steg fire er å sette på hendelsesbeskrivelsene (se <a href="#fig-tekst" class="quarto-xref">Figur&nbsp;7</a>). Til dette bruker vi igjen funksjonen <code>annotate()</code>. Den trenger som nevnt <code>x</code>- og <code>y</code>-verdier for å vite hvor den skal plassere teksten. <code>x</code>-verdiene er de samme som for stolpene, altså vektoren <code>df_slag$år</code>. <code>y</code>-verdiene er de samme som høydene på stolpene, altså vektoren <code>høyder</code>. For et litt mer fancy utseende kan vi bruke <code>geom = "label"</code> i stedet for <code>geom = "text"</code>; dette gir oss tekstbokser rundt teksten.</p>
+<p>For selve beskrivelsene kan vi også gjøre litt mer ut av det ved å legge til det nøyaktige årstallet for hver hendelse under teksten. Her bruker vi bare <code>paste0()</code> til å lime tekstene sammen med årstallene, med <code>\n</code> i mellom. Vi lagrer de nye beskrivelsene i en ny vektor som vi så oppgir i parameteret <code>label</code> i <code>annotate()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>beskrivelser <span class="ot">&lt;-</span> <span class="fu">paste0</span>(df_slag<span class="sc">$</span>navn, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, df_slag<span class="sc">$</span>år)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>tekst <span class="ot">&lt;-</span> stolper <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"label"</span>, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> df_slag<span class="sc">$</span>år, </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> høyder, </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> beskrivelser, </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">4</span>, </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="fl">0.3</span>, <span class="st">"cm"</span>), </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"wheat"</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>tekst</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-tekst" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tekst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-tekst-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="utdrag_files/figure-html/fig-tekst-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tekst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;7: Steg 4 i bygging av tidslinje med <code>ggplot()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Femte og siste steg er finpussen. Nå kan vi fjerne rutenettet og aksene, legge på tittel og fargelegge bakgrunnen. Vi sentrerer tittelen og gir den større font med hjelpefunksjonene <code>easy_center_title()</code> og <code>easy_plot_title_size()</code> fra pakken <code>ggeasy</code> (se <a href="#fig-siste" class="quarto-xref">Figur&nbsp;8</a>}).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggeasy)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>tekst <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">Kjente slag i vikingtiden"</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">easy_center_title</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">easy_plot_title_size</span>(<span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>))</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-siste" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-siste-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-siste-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="utdrag_files/figure-html/fig-siste-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-siste-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;8: Steg 5 i bygging av tidslinje med <code>ggplot()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Dette er kanskje ikke verdens mest avanserte tidslinje, men nå som vi vet hvordan tidslinjen er bygget opp, er det mye lettere å eksperimentere med andre estetiske uttrykk.</p>
+<p>Som et eksempel kan vi prøve å lage en variant av samme tidslinje, denne gangen med bilder. Vi går tilbake et par steg og bygge videre på grafobjektet <code>stolper</code>, som inneholder tidslinjen og stolpene, uten tekstbeskrivelser. Vi kan sette inn bilder i stedet for beskrivelser ved å bruke funksjonen <code>geom_image()</code> fra pakken <code>ggimage</code>. Den trenger bare <code>x</code>- og <code>y</code>-verdier for de stedene hvor bildene skal settes inn, samt en verdi for parameteret <code>image</code>. Dette kan være en vektor med søkestier til bildefiler på harddisken din eller lenker til bilder et sted på nettet. Her får vi endelig bruk for lenkene i datarammen <code>df_slag</code>; vi putter bare vektoren <code>df_slag$bilde</code> inn som verdi for parameteret <code>image</code>. Og vips har vi en tidslinje med et kunstverk for hvert av slagene (se <a href="#fig-bilder" class="quarto-xref">Figur&nbsp;9</a>).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggimage)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>bilder <span class="ot">&lt;-</span> stolper <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_image</span>(<span class="fu">aes</span>(<span class="at">x =</span> df_slag<span class="sc">$</span>år, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> høyder, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">image =</span> df_slag<span class="sc">$</span>bilde</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                 ), </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> .<span class="dv">2</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>bilder</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-bilder" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bilder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-bilder-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><img src="utdrag_files/figure-html/fig-bilder-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bilder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;9: Tidslinje laget med <code>ggplot()</code> — med bilder.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>På nytt bør vi finpusse ved å fjerne rutenettet og legge på farger. I tillegg må vi anerkjenne opphavet til bildene. Det er lett å gjøre ettersom kunstnernavnene er lagret i datarammen <code>df_slag</code>. Vi bruker <code>paste()</code> til å bygge en streng som kan fungere som opphavsnotis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>opphav <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Kunstnere: </span><span class="sc">\n</span><span class="st">"</span>, </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">paste</span>(df_slag<span class="sc">$</span>kunstner, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                )</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Deretter benytter vi samme kode som sist, men vi legger til funksjonen <code>annotate()</code> og plasserer opphavsteksten nede til venstre på figuren ved hjelp av parametrene <code>x</code> og <code>y</code> (se <a href="#fig-bilder_finpuss" class="quarto-xref">Figur&nbsp;10</a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>bilder <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">Kjente slag i vikingtiden"</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">easy_center_title</span>() <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">easy_plot_title_size</span>(<span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"mistyrose"</span>)) <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>, </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="dv">840</span>, </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="sc">-</span><span class="fl">1.7</span>, </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> opphav, </span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">5</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-bilder_finpuss" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bilder_finpuss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-bilder_finpuss-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13"><img src="utdrag_files/figure-html/fig-bilder_finpuss-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bilder_finpuss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10: Tidslinje laget med <code>ggplot()</code> — med bilder og tilpasninger.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="gantt-diagrammer-med-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="gantt-diagrammer-med-ggplot2">Gantt-diagrammer med <code>ggplot2</code></h2>
+<p>En av tidslinjens nærmeste slektninger er Gantt-diagrammet. Du kjenner det fra søknader og prosjektbeskrivelser: horisontale og delvis overlappende søyler som viser når ulike faser i prosjektet er ment å være ferdig. Men Gantt-diagrammer kan brukes til mye annet, for eksempel til historieformidling. I det følgende skal vi lage et diagram som viser når og hvor lenge de første norske vikingkongene levde.</p>
+<p>Det er flere måter å lage Gantt-diagrammer på i R, men den mest fleksible og robuste er med <code>ggplot2</code>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Til dette trenger vi en dataramme som er formatert på en hensiktsmessig måte. Ettersom kjernen i Gantt-diagrammer er tidsperioder, trenger vi en dataramme med minst tre kolonner: 1) navnet på periodene, 2) startpunktene og 3) sluttpunktene. Overført til vårt eksempel trenger vi altså en dataramme med navnet på kongene, deres fødselsår og deres dødsår.</p>
+<p>I bokens dataarkiv ligger det en fil kalt “kap06_konger.csv” med navn, estimert fødselsår og dødsår på syv konger fra Harald Hårfagre til Olav Haraldsson. Vi kan laste den ned med <code>hent_data()</code> og inn i R med <code>read.csv()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hent_data</span>(<span class="st">"kap06_konger.csv"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Laster ned 'kap06_konger.csv' til /home/thomas/gitstuff/gitlab/rbok_nett ..</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df_konger <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"konger.csv"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Igjen inspiserer vi med <code>str()</code> og <code>head()</code> for å være sikre på at vi har riktige data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df_konger)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_konger)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nå kan opptegningen begynne. Planen er å få en horisontal søyle for hver av kongene, og denne søylen skal starte ved fødselsåret og slutte ved dødsåret. I sluttversjonen skal x-aksen derfor ha årstall, mens y-aksen skal ha kongenavnene. For å lage søyler kan vi bruke funksjonen <code>geom_segment()</code>, som vi brukte en del når vi laget tidslinje. Vi husker at <code>geom_segment()</code> trenger fire parametere: <code>x</code>, <code>xend</code>, <code>y</code> og <code>yend</code>.</p>
+<p>Forskjellen denne gangen er at den ene variabelen (“år”) består av tall, mens den andre (“navn”) består av tekst. I et koordinatsystem vil de oppføre seg annerledes, fordi en tekstvariabel ikke har en åpenbar matematisk rekkefølge, mens en tallvariabel har det. I forbindelse med grafer kaller man tallvariabler for kontinuerlige variabler (eng. <em>continuous variables</em>) og tekstvariabler for diskrete variabler (eng. <em>discrete variables</em>). Du kan også tenke på diskrete variabler som kategorier.</p>
+<p>Når vi har en kombinasjon av diskrete og kontinuerlige variabler slik som her, er det god praksis å starte med å knytte den diskrete variabelen til x-aksen og den kontinuerlige til y-aksen selv om vi til slutt skal ha det omvendt. Det er fordi <code>ggplot2</code> i noen tilfeller kan oppføre seg rart hvis y-variabelen ikke er kontinuerlig.</p>
+<p>Vi starter derfor med å knytte x-parametrene i <code>geom_segment()</code> til <code>df_konger$navn</code> og y-parametrene til henholdsvis <code>df_konger$født</code> og <code>df_konger$død</code> som følger (se <a href="#fig-gantt" class="quarto-xref">Figur&nbsp;11</a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df_konger) <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> navn, <span class="at">xend =</span> navn, <span class="at">y =</span> født, <span class="at">yend =</span> død))</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-gantt" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gantt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-gantt-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" data-glightbox="description: .lightbox-desc-14"><img src="utdrag_files/figure-html/fig-gantt-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11: Første steg i bygging av Gantt-diagram med <code>ggplot()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Men vi ville jo ha navnene på venstre side, altså på y-aksen. For å få det til, brker vi den fiffige funksjonen <code>coord_flip()</code> som bytter om på x og y aksen slik at figuren fremstår som vridd 90 grader (se <a href="#fig-gantt1" class="quarto-xref">Figur&nbsp;12</a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df_konger) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> navn, <span class="at">xend =</span> navn, <span class="at">y =</span> født, <span class="at">yend =</span> død)) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-gantt1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gantt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-gantt1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" data-glightbox="description: .lightbox-desc-15"><img src="utdrag_files/figure-html/fig-gantt1-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12: Andre steg i bygging av Gantt-diagram med <code>ggplot()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Vi er på rett spor, men mye gjenstår. Vi ser blant annet at navnene er stokket om; R har satt dem i alfabetisk rekkefølge etter fornavn, nedenfra og opp. Dette er noe <code>ggplot2</code> gjør automatisk med tekstvektorer, og for å unngå det må vi gjøre strengene i vektoren om til det som kalles “faktorer”, det vil si kategorier som ikke kan flyttes på. Dette gjøres enklest med funksjonen <code>fct_inorder()</code> fra pakken <code>forcats</code>. Den “fryser” rekkefølgen til en vektor slik den står i den opprinnelige datarammen. Vi skal komme nærmere tilbake til temaet faktorer i kapittel 11.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df_konger<span class="sc">$</span>navn <span class="ot">&lt;-</span> <span class="fu">fct_inorder</span>(df_konger<span class="sc">$</span>navn)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Hvis vi nå kjører samme kommando som tidligere, er navnene i riktig rekkefølge (se <a href="#fig-gantt2" class="quarto-xref">Figur&nbsp;13</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df_konger) <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> navn, <span class="at">xend =</span> navn, <span class="at">y =</span> født, <span class="at">yend =</span> død)) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-gantt2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gantt2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-gantt2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" data-glightbox="description: .lightbox-desc-16"><img src="utdrag_files/figure-html/fig-gantt2-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13: Gantt-diagram laget med <code>ggplot()</code> — med navn i endret rekkefølge.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Kanskje er det mest logisk å ha den første kongen øverst. La oss derfor snu om på rekkefølgen i navneaksen. <code>ggplot2</code> har et sett med funksjoner som lar oss manipulere akser; vi brukte to av dem — <code>scale_x_continuous()</code> <code>scale_y_continuous()</code> — i forrige kapittel. For diskrete variabler slik som kongenavnene våre må vi bruke <code>scale_x_discrete()</code> eller <code>scale_y_discrete()</code>. Siden vi knyttet navnene til x-verdiene, bruker vi <code>scale_x_discrete()</code>. For å snu om på rekkefølgen i verdiene (altså navnene) setter vi uttrykket <code>limits = rev</code> (for <em>reverse</em>) mellom parentesene. (se <a href="#fig-gantt3" class="quarto-xref">Figur&nbsp;14</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df_konger) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> navn, <span class="at">xend =</span> navn, <span class="at">y =</span> født, <span class="at">yend =</span> død)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> rev)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-gantt3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gantt3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-gantt3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" data-glightbox="description: .lightbox-desc-17"><img src="utdrag_files/figure-html/fig-gantt3-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14: Gantt-diagram laget med <code>ggplot()</code> — med navn i snudd rekkefølge.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Så må vi endre linjene/søylene, og det gjør vi med parametere inni <code>geom_segment()</code>. Vi kan øke bredden med <code>linewidth</code> og endre fargen med <code>color</code> (se <a href="#fig-gantt4" class="quarto-xref">Figur&nbsp;15</a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>gantt_farger <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df_konger) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> navn, <span class="at">xend =</span> navn, <span class="at">y =</span> født, <span class="at">yend =</span> død),</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">10</span>, </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"purple"</span>) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> rev)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>gantt_farger</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-gantt4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gantt4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-gantt4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" data-glightbox="description: .lightbox-desc-18"><img src="utdrag_files/figure-html/fig-gantt4-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15: Gantt-diagram laget med <code>ggplot()</code> — med modifiserte søyler.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Finpussen gjenstår. Vi bør blant annet legge til hovedtittel og fjerne aksetitlene med funksjonen <code>labs()</code>. Vi kan også gjøre x-aksen om til en tydelig tidslinje. Det gjør vi med funksjonen <code>theme()</code> og diverse parametere som starter med <code>axis.*</code>. Vi trenger ikke gå inn på detaljene her; bare noter at hver minste detalj ved plottet kan justeres.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Til slutt kan vi endre bakgrunnsfargen og rutenettet med parametere som starter med <code>panel.*</code> inni <code>theme()</code>. La oss se hvordan dette blir (se <a href="#fig-gantt5" class="quarto-xref">Figur&nbsp;16</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>gantt_ferdig <span class="ot">&lt;-</span> gantt_farger <span class="sc">+</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Når levde de første norske kongene?"</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>),</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> .<span class="dv">5</span>),</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span>(.<span class="dv">5</span>, <span class="st">"cm"</span>),</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lavenderblush2"</span>),</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey80"</span>),</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey80"</span>),</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>gantt_ferdig</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-gantt5" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gantt5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-gantt5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" data-glightbox="description: .lightbox-desc-19"><img src="utdrag_files/figure-html/fig-gantt5-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16: Gantt-diagram laget med <code>ggplot()</code> — med endret bakgrunn og akse.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Vi kan også prøve å lage en litt annen variant hvor navnene står inni søylene og ikke i en liste til venstre. Det kan vi få til med funksjonen <code>annotate()</code>, som plasserer det man vil hvor man vil på figuren. Men for å få navnene midt i de brune feltene, må vi lage en ny vektor med verdier for sentrum av hvert segment. Det er ren matematikk og kan formuleres slik:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df_konger<span class="sc">$</span>midten <span class="ot">&lt;-</span> df_konger<span class="sc">$</span>født <span class="sc">+</span> (df_konger<span class="sc">$</span>død <span class="sc">-</span> df_konger<span class="sc">$</span>født) <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La oss inspisere datarammen for å se om det ble riktig:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df_konger</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              navn født  død midten
+1  Harald Hårfagre  850  931  890.5
+2    Eirik Blodøks  885  954  919.5
+3   Håkon den gode  918  961  939.5
+4   Harald Gråfell  935  970  952.5
+5 Håkon Sigurdsson  935  995  965.0
+6 Olav Tryggvasson  963 1000  981.5
+7  Olav Haraldsson  995 1030 1012.5</code></pre>
+</div>
+</div>
+<p>Da kan vi plotte inn navnene med <code>annotate()</code> samt fjerne navnene fra y-aksen med noen ekstraparametere i <code>theme()</code> (se <a href="#fig-gantt6" class="quarto-xref">Figur&nbsp;17</a>). Vi bør også endre fargen på søylene slik at teksten blir synlig. Vi kan også endre fargen på borden rundt plottet med parameteret <code>plot.background</code> i <code>theme()</code>. Vi kan rekapitulere og ta med koden helt fra start.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df_konger) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> navn, <span class="at">xend =</span> navn, <span class="at">y =</span> født, <span class="at">yend =</span> død),</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">10</span>,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"darkgoldenrod1"</span>) <span class="sc">+</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> rev) <span class="sc">+</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>, </span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> df_konger<span class="sc">$</span>navn,</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> df_konger<span class="sc">$</span>midten,</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> df_konger<span class="sc">$</span>navn, </span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">fontface =</span> <span class="st">"bold"</span>,</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Når levde de første norske kongene?"</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>),</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> .<span class="dv">5</span>),</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span>(.<span class="dv">5</span>, <span class="st">"cm"</span>),</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey95"</span>),</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey80"</span>),</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey80"</span>),</span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"wheat"</span>),</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-gantt6" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gantt6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-gantt6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" data-glightbox="description: .lightbox-desc-20"><img src="utdrag_files/figure-html/fig-gantt6-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;17: Gantt-diagram laget med <code>ggplot()</code> — med annoteringer.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Ikke fortvil hvis dette virker komplisert. Det tar tid å lære seg hvilke kommandoer som endrer hva i <code>ggplot2</code> og ikke minst hva alle parametrene som kan settes inn i <code>theme()</code> heter. Men når du får det inn i fingrene, har du et svært nyttig verktøy til disposisjon.</p>
+</section>
+<section id="dendrogrammer-med-ggraph" class="level2">
+<h2 class="anchored" data-anchor-id="dendrogrammer-med-ggraph">Dendrogrammer med <code>ggraph</code></h2>
+<p>Hittil har vi jobbet mest med grafer og diagrammer som representerer noe kronologisk. En annen viktig kategori diagrammer beskriver <em>relasjoner</em> mellom ting, for eksempel genetiske relasjoner, konseptuelle sammenhenger, prosesser eller nettverk.</p>
+<p>La oss si vi ville lage et slektstre som viser hvordan de tidlige norske vikingkongene sto i slektsmessig forhold til hverandre. Til dette kan vi bruke et såkalt dendrogram, som det er god støtte for i R, blant annet fordi mange biologer bruker R.</p>
+<p>Dendrogrammer kan lages på flere måter, men vi skal bruke pakken <code>ggraph</code>, som er en generell verktøykasse for fremstilling av relasjonsdata. <code>ggraph</code> har den fordelen at den bruker omtrent samme syntaks som <code>ggplot2</code>, så vi slipper å lære enda en ny måte å lage figurer på.</p>
+<p>Her igjen er det struktureringen av datarammen som er det vanskeligste. For å lage dendrogram med <code>ggraph</code> må vi ha en dataramme bestående av rader som representerer parvise relasjoner — det som i nettverksanalyse kalles “kanter” (eng. <em>edges</em>). En kant består av to “noder”; én i hver ende av kanten. Datarammen må derfor ha to kolonner, én for startnoden og én for sluttnoden. Disse kolonnene må ha navnet “from” og “to” for at <code>ggraph</code> skal kunne lese datarammen.</p>
+<p>I bokens dataarkiv ligger det en CSV-fil kalt “kap06_slekt.csv” som er ferdig formatert til dette formålet. Datarammen inneholder relasjondata fra den såkalte Hårfagreætta, nærmere bestemt de fire generasjonene fra Halvdan Svarte via Harald Hårfagre ned til sistnevntes barnebarn. Det er langt fra en komplett fremstilling, for av Harald Hårfagres over 20 barn har jeg bare tatt med Eirik Blodøks og Håkon den Gode, siden det var de som fikk kongemakt.</p>
+<p>La oss laste ned filen med <code>hent_data()</code> og se hvordan en relasjonsdataramme ser ut inni.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hent_data</span>(<span class="st">"kap06_slekt.csv"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Laster ned 'kap06_slekt.csv' til /home/thomas/gitstuff/gitlab/rbok_nett ..</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df_rel <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"slekt.csv"</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>df_rel</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              from                 to
+1   Halvdan Svarte    Harald Hårfagre
+2  Harald Hårfagre      Eirik Blodøks
+3  Harald Hårfagre     Håkon den Gode
+4    Eirik Blodøks      Guttorm Gamle
+5    Eirik Blodøks     Harald Gråfell
+6    Eirik Blodøks Ragnfred Eiriksson
+7    Eirik Blodøks   Erling Eiriksson
+8    Eirik Blodøks   Gudrød Eiriksson
+9    Eirik Blodøks       Sigurd Sleva
+10  Håkon den Gode     &lt;Ingen sønner&gt;</code></pre>
+</div>
+</div>
+<p>Her har vi altså ti rader, en for hver kant (dvs. bilaterale relasjon).</p>
+<p>Nøkkelfunksjonen i pakken <code>ggraph</code> heter simpelthen <code>ggraph()</code>, og den tar en dataramme som hovedargument. I likhet med <code>ggplot()</code> genererer ikke <code>ggraph()</code> alene noen figur; vi må plusse på en <code>geom_*</code>-funksjon som spesifiserer hvilken grafikk vi ønsker. I <code>ggraph</code>-systemet heter disse funksjonene som oftest noe med <code>geom_edge_*</code> og <code>geom_node_*</code>. Vi skal bruke <code>geom_edge_diagonal()</code>, som tegner avrundete streker mellom nodene (se <a href="#fig-dendro" class="quarto-xref">Figur&nbsp;18</a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"auto"</span>) <span class="sc">+</span> </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_diagonal</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using "tree" as default layout</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-dendro" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dendro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-dendro-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" data-glightbox="description: .lightbox-desc-21"><img src="utdrag_files/figure-html/fig-dendro-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;18: Enkelt dendrogram laget med <code>ggraph()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Vi ser at <code>ggraph()</code> og <code>geom_edge_diagonal()</code> gir oss diagrammets skjelett — altså forbindelsene mellom nodene uten nodenes navn. For å vise navnene må vi plusse på enten <code>geom_node_text()</code> eller <code>geom_node_label()</code>. Den første legger bare til tekst, den andre legger til tekst med en tekstboks rundt. Vi må også fortelle R hvor disse funksjonene skal hente teksten fra, og det gjør vi ved å sette uttrykket <code>aes(label = name)</code> mellom parentesene (se <a href="#fig-dendro2" class="quarto-xref">Figur&nbsp;19</a>). Vi kan også justere fontstørrelse, skriftstørrelse og andre ting med parametere inni <code>geom_node_label()</code>. Vi setter <code>size = 2</code> for at ikke boksene skal overlappe.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"auto"</span>) <span class="sc">+</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_diagonal</span>() <span class="sc">+</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">size =</span> <span class="dv">2</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using "tree" as default layout</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-dendro2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dendro2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-dendro2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" data-glightbox="description: .lightbox-desc-22"><img src="utdrag_files/figure-html/fig-dendro2-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;19: Dendrogram laget med <code>ggraph()</code> — med tekstbokser.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Vi vil også ha mer luft rundt diagrammet slik at alt kommer med. Det gjør vi med funksjonene <code>scale_x_continuous()</code> og <code>scale_y_continuous()</code> og parameteret <code>limits</code>. Men hva skal yttergrensene være? Vi ser at diagrammet vårt er syv noder bredt og fire noder høyt, noe som betyr at x-koordinatene i utgangspunktet går fra 0 til 6 og y-koordinatene går fra 0 til 3. Hvis vi tar en noe lavere minimumsverdi og litt høyere maksverdi, vil “lerretet” bli større. Vi kan også legge til en tittel med funksjonen <code>labs()</code> (se <a href="#fig-dendro3" class="quarto-xref">Figur&nbsp;20</a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"dendrogram"</span>) <span class="sc">+</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_diagonal</span>() <span class="sc">+</span> </span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>,<span class="fl">6.2</span>)) <span class="sc">+</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>,<span class="fl">3.2</span>)) <span class="sc">+</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Hårfagreætta"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-dendro3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dendro3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-dendro3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" data-glightbox="description: .lightbox-desc-23"><img src="utdrag_files/figure-html/fig-dendro3-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;20: Dendrogram laget med <code>ggraph()</code> — med ryddige tekstbokser.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Og vips har vi et ferdig trediagram. Det er mye mer vi kan gjøre, for de fleste funksjonene som modifiserer <code>ggplot</code>-figurer fungerer også på <code>ggraph</code>-figurer, så jo mer du lærer om <code>ggplot</code>, jo lettere vil det bli å finpusse <code>ggraph</code>-diagrammer.</p>
+<p>For læringens skyld kan vi gjøre ytterligere et par justeringer. Det ene er å endre farge og tykkelse på linjen mellom nodene. Det gjør vi med parametrene <code>width</code> og <code>color</code> inni funksjonen <code>geom_edge_diagonal()</code>.</p>
+<p>Det andre er å fargelegge tekstboksene selektivt for å skille mellom de som ble konger og de som ikke ble det. Her må vi bruke parameteret <code>fill</code> inni <code>geom_node_label()</code>. Å få samme farge på alle tekstboksene er lett; det er bare å sette <code>fill</code> til én bestemt farge (f.&nbsp;eks. <code>fill = "grey"</code>). Å få forskjellige farger er litt mer krevende. Da må vi lage en vektor med fargekoder — én for hver tekstboks — og så oppgi denne vektoren som verdi til parameteret <code>fill</code>.</p>
+<p>For at dette skal fungere, må hver tekstboks være representert i vektoren med hver sin tiltenkte fargekode. Vi må også vite at R begynner å telle ovenfra og teller fra venstre mot høyre, så det første elementet i vektoren representerer noden Halvdan Svarte, den fjerde representerer Håkon den Gode, osv. Vi vet at bare de fire første samt Harald Gråfell ble konger, så vi gir disse en egen farge.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>farger <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"gold2"</span>, <span class="st">"gold2"</span>, <span class="st">"gold2"</span>, <span class="st">"gold2"</span>, <span class="st">"grey"</span>, <span class="st">"gold2"</span>, <span class="st">"grey"</span>, <span class="st">"grey"</span>, <span class="st">"grey"</span>, <span class="st">"grey"</span>, <span class="st">"white"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nå kan vi tegne opp diagrammet (se <a href="#fig-dendro4" class="quarto-xref">Figur&nbsp;21</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"dendrogram"</span>) <span class="sc">+</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_diagonal</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span> </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), </span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> <span class="dv">2</span>, </span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill =</span> farger) <span class="sc">+</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>,<span class="fl">6.2</span>)) <span class="sc">+</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>,<span class="fl">3.2</span>)) <span class="sc">+</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Hårfagreætta"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-dendro4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dendro4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-dendro4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" data-glightbox="description: .lightbox-desc-24"><img src="utdrag_files/figure-html/fig-dendro4-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;21: Dendrogram laget med <code>ggraph()</code> — med fargede bokser.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Før vi går videre kan vi ta en rask titt på hvor lett det er å endre diagramstruktur i <code>ggraph</code>. For å snu diagrammet opp-ned, kan vi endre <code>layout</code>-parameteret i <code>ggraph()</code>-funksjonen fra “dendrogram” til “partition” (se <a href="#fig-dendro5" class="quarto-xref">Figur&nbsp;22</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"partition"</span>) <span class="sc">+</span> </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_diagonal</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-dendro5" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dendro5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-dendro5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" data-glightbox="description: .lightbox-desc-25"><img src="utdrag_files/figure-html/fig-dendro5-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;22: Dendrogram laget med <code>ggraph()</code> — snudd 180 grader.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>For å snu det 90 grader, plusser vi på <code>coord_flip()</code> (se <a href="#fig-dendro6" class="quarto-xref">Figur&nbsp;23</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"dendrogram"</span>) <span class="sc">+</span> </span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_diagonal</span>() <span class="sc">+</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() </span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-dendro6" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dendro6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-dendro6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" data-glightbox="description: .lightbox-desc-26"><img src="utdrag_files/figure-html/fig-dendro6-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;23: Dendrogram laget med <code>ggraph()</code> — snudd 90 grader.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Hvis vi bytter ut <code>geom_edge_diagonal()</code> med <code>geom_edge_bend()</code>, får vi andre kurver (se <a href="#fig-dendro7" class="quarto-xref">Figur&nbsp;24</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"dendrogram"</span>) <span class="sc">+</span> </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_bend</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-dendro7" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dendro7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-dendro7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" data-glightbox="description: .lightbox-desc-27"><img src="utdrag_files/figure-html/fig-dendro7-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;24: Dendrogram laget med <code>ggraph()</code> — med hardere kurver.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><code>geom_edge_link</code> gir skarpe vinkler (se <a href="#fig-dendro8" class="quarto-xref">Figur&nbsp;25</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"dendrogram"</span>) <span class="sc">+</span> </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-dendro8" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dendro8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-dendro8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" data-glightbox="description: .lightbox-desc-28"><img src="utdrag_files/figure-html/fig-dendro8-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;25: Dendrogram laget med <code>ggraph()</code> — med vinkler.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Mens <code>geom_edge_elbow</code> gir helt rette vinkler (se <a href="#fig-dendro9" class="quarto-xref">Figur&nbsp;26</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"dendrogram"</span>) <span class="sc">+</span> </span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_elbow</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-dendro9" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dendro9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-dendro9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" data-glightbox="description: .lightbox-desc-29"><img src="utdrag_files/figure-html/fig-dendro9-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;26: Dendrogram laget med <code>ggraph()</code> — med rette vinkler.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="prosessdiagrammer-med-mermaid" class="level2">
+<h2 class="anchored" data-anchor-id="prosessdiagrammer-med-mermaid">Prosessdiagrammer med Mermaid</h2>
+<p>Vi kan også bruke R til å lage prosessdiagrammer. La oss si vi ville fremme et argument om at kristendommen svekket toktkulturen i vikingsamfunnene via tre ulike mekanismer — normer mot slaveri, solidaritet med andre kristne og insentiver for handel. Da kunne det passe med et prosessdiagram som går i diamantform fra årsaken via mekanismene til utfallet; altså en boks til venstre (eller oppe), tre bokser i midten, og en boks til høyre (eller nede) (se <a href="#fig-mermaid0" class="quarto-xref">Figur&nbsp;27</a>).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mermaid0" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mermaid0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-mermaid0">  graph LR
+    A --&gt; B
+    A --&gt; C
+    A --&gt; D
+    B --&gt; E
+    C --&gt; E
+    D --&gt; E
+    A(Kristendom)
+    B(Normer mot slaveri)
+    C(Solidaritet med andre kristne)
+    D(Insentiver for handel)
+    E(Færre tokt)
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mermaid0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;27: Mermaid-diagram over hypotetisk årsakskjede.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Det er fullt mulig å lage en slik figur med <code>ggplot</code> eller <code>ggraph</code>, men det enkleste er å bruke diagramopptegningsspråket Mermaid via R-pakken <code>DiagrammeR</code>.<code>DiagrammeR</code> (merk stavingen med stor D og S) er en pakke som ikke lager diagrammer på egen hånd, men tjener som budbringer (såkalt <em>wrapper</em>) mellom R og andre, mer spesialiserte diagrambyggingsspråk, nærmere bestemt Mermaid og GraphViz/DOT. Vi skal fokusere på Mermaid fordi det er enklere og kan brukes direkte i Quarto (se kapittel 13).</p>
+<p>R-dimensjonen ved <code>DiagrammeR</code> er veldig enkel; du bruker bare funksjonen <code>DiagrammeR()</code> og setter Mermaid-koden inni, som følger.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Not Run</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">DiagrammeR</span>(<span class="st">"</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="st">  &lt;MERMAID-KODE HER&gt;</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Mermaid er eget oppmarkeringsspråk for diagrammer og figurer. Du kan tenke på det som en slags Markdown (se kapittel 13) for diagrammer. Det er lett å lære, har utrolig mange funksjonaliteter, og kan brukes på tvers av kodespråk og tekniske plattformer. Du finner en god innføring i Mermaids syntaks på https://mermaid.js.org/intro/.</p>
+<p>Den beste måten å lære Mermaid på er å eksperimentere i en live Mermaid-redigerer slik som https://mermaid.live, for den lar deg se sluttproduktet mens du skriver. Når jeg skal lage et diagram, pleier jeg å skrive Mermaidkoden i en slik redigerer først, for så å lime den inn der jeg trenger den, om det er i et R-skript eller et Quarto-dokument.</p>
+<p>Det er lett å lage prosessdiagrammer i Mermaid fordi koden likner på diagrammet du får. For å tegne to bokser A og B med pil fra A til B (se <a href="#fig-mermaid1" class="quarto-xref">Figur&nbsp;28</a>), tegner du bokstavelig talt bare en pil, som følger.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a># Skrives i https://mermaid.live</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>graph LR</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  A --&gt; B</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mermaid1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mermaid1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-mermaid1">graph LR
+  A --&gt; B
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mermaid1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;28: Enkelt Mermaid-diagram.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>For å få et prosessdiagram må første linje inneholde ordet <code>graph</code>. Bak <code>graph</code> setter vi retningen som pilene skal følge; enten <code>LR</code> (<em>left-to-right</em>), <code>TB</code> (<em>top-to-bottom</em>), <code>RL</code> eller <code>BT</code>. Deretter definerer vi alle kantene i diagrammet, altså relasjonene mellom nodene, én etter én. Resultatet blir som i <a href="#fig-mermaid2" class="quarto-xref">Figur&nbsp;29</a>.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a># Skrives i https://mermaid.live</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>graph LR</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  A --&gt; B</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  A --&gt; C</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  B --&gt; D</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>  C --&gt; D</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mermaid2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mermaid2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-mermaid2">graph LR
+  A --&gt; B
+  A --&gt; C
+  B --&gt; D
+  C --&gt; D
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mermaid2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;29: Mermaid-diagram med flere noder.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Vi kan bestemme teksten inni nodene (se <a href="#fig-mermaid3" class="quarto-xref">Figur&nbsp;30</a>) ved å legge til definisjoner med klammer for hver av nodene.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a># Skrives i https://mermaid.live</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>graph LR</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  A --&gt; B</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  A --&gt; C</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  B --&gt; D</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>  C --&gt; D</span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>  A[DiagrammeR]</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>  B[Mermaid]</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>  C[GraphViz]</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>  D[Diagram]</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mermaid3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mermaid3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-mermaid3">graph LR
+  A --&gt; B
+  A --&gt; C
+  B --&gt; D
+  C --&gt; D
+  A[DiagrammeR]
+  B[Mermaid]
+  C[GraphViz]
+  D[Diagram]
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mermaid3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;30: Mermaid-diagram med tekst i nodene.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Merk at Mermaid er svært lite følsom for mellomrom og rekkefølge. Du kan sette ting hvor du vil, så fremt de står på separate linjer (se <a href="#fig-mermaid4" class="quarto-xref">Figur&nbsp;31</a>).</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a># Skrives i https://mermaid.live</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>graph LR</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>A[Mermaid]</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>A--&gt;B</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>         B[Diagram]</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mermaid4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mermaid4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-mermaid4">graph LR
+A[Mermaid]
+A--&gt;B
+         B[Diagram]
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mermaid4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;31: Mermaid-diagram fra rotete kode.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Formen på nodene kontrolleres med <em>typen klammer</em> i tekstdefinisjonen. Nodenes farge, linjetype, font mm. defineres separat med kommandoen <code>style</code> (se <a href="#fig-mermaid5" class="quarto-xref">Figur&nbsp;32</a>). Merk at det finnes mange flere stylingmuligheter enn det jeg viser her.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a># Skrives i https://mermaid.live</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>graph LR</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  A --&gt; B</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  A --&gt; C</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>  B --&gt; D</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>  C --&gt; D</span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>  A(DiagrammeR)</span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>  B[Mermaid]</span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>  C[(GraphViz)]</span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>  D{Diagram}</span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a>  style B fill:yellow,stroke-dasharray: 5 5</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mermaid5" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mermaid5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-mermaid5">graph LR
+  A --&gt; B
+  A --&gt; C
+  B --&gt; D
+  C --&gt; D
+  A(DiagrammeR)
+  B[Mermaid]
+  C[(GraphViz)]
+  D{Diagram}
+  style B fill:yellow,stroke-dasharray: 5 5
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mermaid5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;32: Mermaid-diagram med modifiserte noder.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Du kan endre linjetype med andre typer tegn i kantdefinisjonene (se <a href="#fig-mermaid6" class="quarto-xref">Figur&nbsp;33</a>). Farge og andre aspekter ved linjen defineres separat med <code>linkStyle</code> etterfulgt av indeksnummeret til kanten/linjen.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Den du har definert først blir indeks 0.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a># Skrives i https://mermaid.live</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>graph LR</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  A --- B</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  A -.- C</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  B &lt;--&gt; D</span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>  C --Tekst--&gt; D</span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>  A(DiagrammeR)</span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>  B[Mermaid]</span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>  C[(GraphViz)]</span>
+<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>  D{Diagram}</span>
+<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>  style B fill:yellow,stroke-dasharray: 5 5</span>
+<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a>  linkStyle 0 stroke:red</span>
+<span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a>  linkStyle 2 stroke:green</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mermaid6" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mermaid6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-mermaid6">graph LR
+  A --- B
+  A -.- C
+  B &lt;--&gt; D
+  C --Tekst--&gt; D
+
+  A(DiagrammeR)
+  B[Mermaid]
+  C[(GraphViz)]
+  D{Diagram}
+
+  style B fill:yellow,stroke-dasharray: 5 5
+  linkStyle 0 stroke:red
+  linkStyle 2 stroke:green
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mermaid6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;33: Mermaid-diagram med modifiserte linjer.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Med dette kan vi lage et diagram over vår påståtte sammenheng mellom kristendom og toktkultur. Vi putter Mermaid-koden inn i <code>DiagrammeR()</code> slik at vi kan kjøre den i R. <a href="#fig-mermaid7" class="quarto-xref">Figur&nbsp;34</a> viser sluttproduktet.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DiagrammeR</span>(<span class="st">"</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="st">  graph LR</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="st">    A --&gt; B</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="st">    A --&gt; C</span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="st">    A --&gt; D</span></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="st">    B --&gt; E</span></span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="st">    C --&gt; E</span></span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="st">    D --&gt; E</span></span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a><span class="st">    A(Kristendom)</span></span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a><span class="st">    B(Normer mot slaveri)</span></span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="st">    C(Solidaritet med andre kristne)</span></span>
+<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a><span class="st">    D(Insentiver for handel)</span></span>
+<span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a><span class="st">    E(Færre tokt)</span></span>
+<span id="cb61-14"><a href="#cb61-14" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mermaid7" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mermaid7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-mermaid7">  graph LR
+    A --&gt; B
+    A --&gt; C
+    A --&gt; D
+    B --&gt; E
+    C --&gt; E
+    D --&gt; E
+    A(Kristendom)
+    B(Normer mot slaveri)
+    C(Solidaritet med andre kristne)
+    D(Insentiver for handel)
+    E(Færre tokt)
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mermaid7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;34: Mermaid-diagram over hypotetisk årsakskjede.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Merk at <code>DiagrammeR()</code> genererer figurer i HTML-format, så du kan ikke bruke funksjonen når du skal lage PDF-dokumenter i Quarto. Men Quarto lar deg skrive Mermaid-kode i egne Mermaid-kodeblokker slik at behovet for <code>DiagrammeR</code> i praksis bortfaller (se kapittel 13).</p>
+</section>
+<section id="nettverksdiagrammer-med-ggraph" class="level2">
+<h2 class="anchored" data-anchor-id="nettverksdiagrammer-med-ggraph">Nettverksdiagrammer med <code>ggraph</code></h2>
+<p>Vi kan også bruke R til å fremstille nettverk av ulike slag, det være seg mellom personer eller organisasjoner. Nettverksanalyse er et komplisert felt som vi ikke skal gå inn på her, men vi kan se raskt på hvordan vi kan lage enkle nettverksdiagrammer med pakken <code>ggraph</code>.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>Igjen må vi starte med å bygge en dataramme med grunnlagsdata. En utfordring her er at nettverksdiagrammer ofte involverer mer data enn andre diagrammer. De har gjerne mange noder, og siden hver node kan ha flere kanter, kan datarammen fort bli ganske stor. I praksis lager man sjelden datarammer for nettverksdiagrammer for hånd; man laster ferdige datasett fra andre steder eller genererer dem programmatisk fra andre datakilder.</p>
+<p>For illustrasjonens skyld har jeg forberedt et lite nettverksdatasett som ligger i bokens dataarkiv under navnet “kap06_nettverk.csv”. Det inneholder forbindelser mellom personer rundt vikinghøvdingen Tore Hund på Bjarkøy på starten av 1000-tallet. Jeg laget det basert på informasjon om Wikipedia-artikkelen om Tore Hund.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> La oss laste det ned og se på øverste del av det med <code>head()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rforalle)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hent_data</span>(<span class="st">"kap06_nettverk.csv"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Laster ned 'kap06_nettverk.csv' til /home/thomas/gitstuff/gitlab/rbok_nett ..</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>df_nettverk <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"nettverk.csv"</span>)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_nettverk)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       from                 to    type
+1 Tore Hund   Tore fra Bjarkøy familie
+2 Tore Hund    Sigurd Toresson familie
+3 Tore Hund Sigrid Toresdatter familie
+4 Tore Hund    Olav Haraldsson  fiende
+5 Tore Hund            Ranveig familie
+6 Tore Hund      Kalv Arnesson partner</code></pre>
+</div>
+</div>
+<p>Vi ser at det er strukturert på samme måte som datarammene vi brukte tidligere til <code>ggraph</code>-diagrammer: kanter som rader og to kolonner kalt “from” og “to”. I tillegg har vi nå en kolonne kalt “type”, hvor jeg har kodet for typen relasjon mellom personene, siden dette er noe som egner seg for framstilling i nettverksdiagrammer.</p>
+<p>Vi gir datarammen til funksjonen <code>ggraph()</code> for opptegning. For å få nettverksdiagram setter vi parameteret <code>layout</code> til <code>stress</code>. Vi bruker <code>geom_edge_link()</code> for å få rette streker. For å fargelegge forbindelsene etter type, setter jeg inn en <code>aes()</code>-funksjon i <code>geom_edge_link()</code> og assosierer parameteret <code>color</code> med variabelen <code>type</code>. Jeg velger farger med funksjonen <code>scale_edge_color_manual()</code>. I tillegg lager jeg en tittel med <code>labs()</code> og gjør rom rundt nettverket med <code>scale_x_continuous()</code> og <code>scale_y_continuous()</code> (se <a href="#fig-nett" class="quarto-xref">Figur&nbsp;35</a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_nettverk, <span class="at">layout =</span> <span class="st">'stress'</span>) <span class="sc">+</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">color =</span> type)) <span class="sc">+</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>() <span class="sc">+</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_edge_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'green3'</span>, <span class="st">'red'</span>, <span class="st">'blue'</span>)) <span class="sc">+</span></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Tore Hunds verden'</span>) <span class="sc">+</span></span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="fl">2.5</span>))</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing non-finite outside the scale range
+(`stat_edge_link()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 3 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 3 rows containing missing values or values outside the scale range
+(`geom_label()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-nett" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nett-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="utdrag_files/figure-html/fig-nett-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" data-glightbox="description: .lightbox-desc-30"><img src="utdrag_files/figure-html/fig-nett-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nett-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;35: Nettverksdiagram i ggraph.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Så enkelt kan det gjøres hvis man bare har datarammen klar. Diagrammet kan formateres videre med andre <code>ggraph</code> og <code>ggplot2</code>-funksjoner, men vi stopper her, siden hensikten bare var å illustrere prinsippet.</p>
+<p>Før vi avslutter kan vi renske opp i arbeidsområdet vårt med følgende kommando.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Opprensking</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>kan_slettes <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">'csv$|png$'</span>)</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="fu">file.remove</span>(kan_slettes)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="oppsummering" class="level2">
+<h2 class="anchored" data-anchor-id="oppsummering">Oppsummering</h2>
+<p>Vi har lært å lage fem forskjellige diagramtyper: tidslinjer, Gantt-diagrammer, dendrogrammer, prosessdiagrammer og nettverksdiagrammer. Vi har sett at det finnes pakker spesiallaget for én diagramtype (<code>timelineS</code>), at <code>ggraph</code> kan brukes til flere typer relasjonsdiagrammer, og at vi egentlig kan lage alle diagramtyper i <code>ggplot2</code>. På ny har vi sett at hovedutfordringen ofte er å få strukturert underlagsdataene riktig, særlig i <code>ggraph</code>, hvor vi må tenke på de nye begrepene “noder” og “kanter”. Vi har naturligvis ikke dekket alle mulige diagramtyper, men med verktøyene du nå har lært er du godt rustet til å eksperimentere videre på egen hånd. Du lurer kanskje på hvorfor vi ikke har omtalt en av de mest grunnleggende diagramtypene, nemlig <em>tabeller</em>, men det er fordi vi skal gjøre det i kapittel 13 når vi skal se på Quarto. Nå skal vi videre til et av mine favoritt-temaer i R-universet: kart.</p>
+
+
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Tidslinje med <code>timelineS</code></span>
+<span class="glightbox-desc lightbox-desc-2">Tidslinje med <code>ggplot2</code>.</span>
+<span class="glightbox-desc lightbox-desc-3">Gantt-diagram.</span>
+<span class="glightbox-desc lightbox-desc-4">Dendrogram.</span>
+<span class="glightbox-desc lightbox-desc-5">Figur&nbsp;2: Tidslinje i <code>timelineS</code> uten modifikasjoner.</span>
+<span class="glightbox-desc lightbox-desc-6">Figur&nbsp;3: Tilpasset tidslinje i <code>timelineS</code>.</span>
+<span class="glightbox-desc lightbox-desc-7">Figur&nbsp;4: Steg 1 i bygging av tidslinje med <code>ggplot()</code>.</span>
+<span class="glightbox-desc lightbox-desc-8">Figur&nbsp;5: Steg 2 i bygging av tidslinje med <code>ggplot()</code>.</span>
+<span class="glightbox-desc lightbox-desc-9">Figur&nbsp;6: Steg 3 i bygging av tidslinje med <code>ggplot()</code>.</span>
+<span class="glightbox-desc lightbox-desc-10">Figur&nbsp;7: Steg 4 i bygging av tidslinje med <code>ggplot()</code>.</span>
+<span class="glightbox-desc lightbox-desc-11">Figur&nbsp;8: Steg 5 i bygging av tidslinje med <code>ggplot()</code>.</span>
+<span class="glightbox-desc lightbox-desc-12">Figur&nbsp;9: Tidslinje laget med <code>ggplot()</code> — med bilder.</span>
+<span class="glightbox-desc lightbox-desc-13">Figur&nbsp;10: Tidslinje laget med <code>ggplot()</code> — med bilder og tilpasninger.</span>
+<span class="glightbox-desc lightbox-desc-14">Figur&nbsp;11: Første steg i bygging av Gantt-diagram med <code>ggplot()</code>.</span>
+<span class="glightbox-desc lightbox-desc-15">Figur&nbsp;12: Andre steg i bygging av Gantt-diagram med <code>ggplot()</code>.</span>
+<span class="glightbox-desc lightbox-desc-16">Figur&nbsp;13: Gantt-diagram laget med <code>ggplot()</code> — med navn i endret rekkefølge.</span>
+<span class="glightbox-desc lightbox-desc-17">Figur&nbsp;14: Gantt-diagram laget med <code>ggplot()</code> — med navn i snudd rekkefølge.</span>
+<span class="glightbox-desc lightbox-desc-18">Figur&nbsp;15: Gantt-diagram laget med <code>ggplot()</code> — med modifiserte søyler.</span>
+<span class="glightbox-desc lightbox-desc-19">Figur&nbsp;16: Gantt-diagram laget med <code>ggplot()</code> — med endret bakgrunn og akse.</span>
+<span class="glightbox-desc lightbox-desc-20">Figur&nbsp;17: Gantt-diagram laget med <code>ggplot()</code> — med annoteringer.</span>
+<span class="glightbox-desc lightbox-desc-21">Figur&nbsp;18: Enkelt dendrogram laget med <code>ggraph()</code>.</span>
+<span class="glightbox-desc lightbox-desc-22">Figur&nbsp;19: Dendrogram laget med <code>ggraph()</code> — med tekstbokser.</span>
+<span class="glightbox-desc lightbox-desc-23">Figur&nbsp;20: Dendrogram laget med <code>ggraph()</code> — med ryddige tekstbokser.</span>
+<span class="glightbox-desc lightbox-desc-24">Figur&nbsp;21: Dendrogram laget med <code>ggraph()</code> — med fargede bokser.</span>
+<span class="glightbox-desc lightbox-desc-25">Figur&nbsp;22: Dendrogram laget med <code>ggraph()</code> — snudd 180 grader.</span>
+<span class="glightbox-desc lightbox-desc-26">Figur&nbsp;23: Dendrogram laget med <code>ggraph()</code> — snudd 90 grader.</span>
+<span class="glightbox-desc lightbox-desc-27">Figur&nbsp;24: Dendrogram laget med <code>ggraph()</code> — med hardere kurver.</span>
+<span class="glightbox-desc lightbox-desc-28">Figur&nbsp;25: Dendrogram laget med <code>ggraph()</code> — med vinkler.</span>
+<span class="glightbox-desc lightbox-desc-29">Figur&nbsp;26: Dendrogram laget med <code>ggraph()</code> — med rette vinkler.</span>
+<span class="glightbox-desc lightbox-desc-30">Figur&nbsp;35: Nettverksdiagram i ggraph.</span>
+</div>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fotnoter</h2>
+
+<ol>
+<li id="fn1"><p>Vær oppmerksom på at dette skriptet henter bilder fra internett via lenkene i <code>df_slag$bilde</code>. Hvis du ikke har nettilkopling, vil du få feilmelding. Noen ganger kan man også få feilmelding som inneholder uttrykket <code>Timeout was reached</code>. Det betyr at R ikke fikk kontakt med serveren som oppbevarer bildet. Det kan være flere årsaker til det, men problemet er normalt midlertidig, så i slike tilfeller anbefaler jeg å prøve igjen litt senere.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Det finnes en rekke R-pakker som lager en spesifikk type Gantt-diagrammer raskt og enkelt; blant annet <code>vistime</code>, <code>ganttrify</code>, <code>candela</code>, <code>DiagrammeR</code>, <code>plotrix</code> og <code>googleVis</code>. Men de fleste er innrettet mot prosjektplanlegging og genererer diagrammer som etter mitt syn ikke er spesielt pene.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Merk at mange av parametrene i <code>theme()</code> henviser til x- eller y-aksen og at x nå henviser til aksen med årstall og y til aksen med navn. Det er fordi vi tidligere i skriptet brukte <code>coord_flip()</code>, og <code>theme()</code> forholder seg til grafstrukturen slik den står etter at <code>coord_flip()</code> har vridd om på grafen.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>I skrivende stund er det dessverre ingen enkel måte å kontrollere fargen på pilhodene på; se https://github.com/mermaid-js/mermaid/issues/1236.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Det er også mulig å lage nettverksdiagrammer med <code>igraph</code> og <code>diagrammeR</code>, men <code>ggraph</code> kommuniserer bedre med resten av GG-systemet.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>https://no.wikipedia.org/wiki/Tore_Hund, konsultert 8. mars 2022.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false,"closeEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,15 @@
+{
+  "hash": "b9dfd6baecfe6984eff300d6ddff6813",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Ressurser\n---\n\n\n### Data\n\nAll eksempelkode og -data ligger [her](https://github.com/Hegghammer/rbok). \n\n\n### R-pakke\n\nR-pakken [rforalle](https://github.com/Hegghammer/rforalle) hjelper deg å laste ned eksempelkode og eksempeldata. Installér den med følgende kommando:\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndevtools::install_github(\"hegghammer/rforalle\")\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

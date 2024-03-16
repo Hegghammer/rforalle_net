@@ -1,0 +1,29 @@
+{
+  "index.qmd": {
+    "index.html": "8bb54568"
+  },
+  "about.qmd": {
+    "about.html": "1c4cc50a"
+  },
+  "data.qmd": {
+    "data.html": "975727a3"
+  },
+  "bestill.qmd": {
+    "bestill.html": "46988c9e"
+  },
+  "innhold.qmd": {
+    "innhold.html": "7e6eb151"
+  },
+  "ressurser.qmd": {
+    "ressurser.html": "9a5a7a10"
+  },
+  "om_boken.qmd": {
+    "om_boken.html": "e87ebd4d"
+  },
+  "utdrag.qmd": {
+    "utdrag.html": "8056ef0b"
+  },
+  "blogg.qmd": {
+    "blogg.html": "773d407a"
+  }
+}
