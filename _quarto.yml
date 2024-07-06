@@ -8,6 +8,8 @@ website:
     left:
       - href: om_boken.qmd
         text: Om boken
+      - href: omtale.qmd
+        text: Omtale
       - href: utdrag.qmd
         text: Utdrag
       - href: ressurser.qmd

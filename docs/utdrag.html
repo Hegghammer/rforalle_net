@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nb" xml:lang="nb"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.5.52">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R for alle - Kapittel 6: Fremstill diagrammer</title>
+<title>Kapittel 6: Fremstill diagrammer – R for alle</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Søk"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Slå på navigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Slå på navigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -131,6 +131,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="./om_boken.html"> 
 <span class="menu-text">Om boken</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./omtale.html"> 
+<span class="menu-text">Omtale</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./utdrag.html" aria-current="page"> 
@@ -150,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -182,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 75%">
@@ -203,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/kap06_tidslinje1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Tidslinje med timelineS"><img src="images/kap06_tidslinje1.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/kap06_tidslinje1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Tidslinje med timelineS"><img src="images/kap06_tidslinje1.png" class="img-fluid figure-img"></a></p>
 <figcaption>Tidslinje med <code>timelineS</code></figcaption>
 </figure>
 </div>
@@ -211,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/kap06_tidslinje2.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Tidslinje med ggplot2."><img src="images/kap06_tidslinje2.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/kap06_tidslinje2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Tidslinje med ggplot2."><img src="images/kap06_tidslinje2.png" class="img-fluid figure-img"></a></p>
 <figcaption>Tidslinje med <code>ggplot2</code>.</figcaption>
 </figure>
 </div>
@@ -221,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/kap06_gantt.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Gantt-diagram."><img src="images/kap06_gantt.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/kap06_gantt.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Gantt-diagram."><img src="images/kap06_gantt.png" class="img-fluid figure-img"></a></p>
 <figcaption>Gantt-diagram.</figcaption>
 </figure>
 </div>
@@ -229,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/kap06_dendro.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Dendrogram."><img src="images/kap06_dendro.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/kap06_dendro.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Dendrogram."><img src="images/kap06_dendro.png" class="img-fluid figure-img"></a></p>
 <figcaption>Dendrogram.</figcaption>
 </figure>
 </div>
@@ -271,10 +275,10 @@ Figur&nbsp;1: Noen av diagrammene vi skal lage i dette kapittelet.
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(timelineS)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">timelineS</span>(df_slag)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-tid" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-tid" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-tid-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><img src="utdrag_files/figure-html/fig-tid-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="utdrag_files/figure-html/fig-tid-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figur&nbsp;2: Tidslinje i timelineS uten modifikasjoner."><img src="utdrag_files/figure-html/fig-tid-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;2: Tidslinje i <code>timelineS</code> uten modifikasjoner.
@@ -301,10 +305,10 @@ Figur&nbsp;2: Tidslinje i <code>timelineS</code> uten modifikasjoner.
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-tid2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-tid2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tid2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-tid2-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6"><img src="utdrag_files/figure-html/fig-tid2-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="utdrag_files/figure-html/fig-tid2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figur&nbsp;3: Tilpasset tidslinje i timelineS."><img src="utdrag_files/figure-html/fig-tid2-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tid2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;3: Tilpasset tidslinje i <code>timelineS</code>.
@@ -367,10 +371,10 @@ Figur&nbsp;3: Tilpasset tidslinje i <code>timelineS</code>.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-linje" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-linje" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-linje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-linje-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7"><img src="utdrag_files/figure-html/fig-linje-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+<a href="utdrag_files/figure-html/fig-linje-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figur&nbsp;4: Steg 1 i bygging av tidslinje med ggplot()."><img src="utdrag_files/figure-html/fig-linje-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;4: Steg 1 i bygging av tidslinje med <code>ggplot()</code>.
@@ -404,10 +408,10 @@ Figur&nbsp;4: Steg 1 i bygging av tidslinje med <code>ggplot()</code>.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-tallinje" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-tallinje" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tallinje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-tallinje-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8"><img src="utdrag_files/figure-html/fig-tallinje-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+<a href="utdrag_files/figure-html/fig-tallinje-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figur&nbsp;5: Steg 2 i bygging av tidslinje med ggplot()."><img src="utdrag_files/figure-html/fig-tallinje-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tallinje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;5: Steg 2 i bygging av tidslinje med <code>ggplot()</code>.
@@ -434,10 +438,10 @@ Figur&nbsp;5: Steg 2 i bygging av tidslinje med <code>ggplot()</code>.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-stolper" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-stolper" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-stolper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-stolper-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9"><img src="utdrag_files/figure-html/fig-stolper-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+<a href="utdrag_files/figure-html/fig-stolper-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figur&nbsp;6: Steg 3 i bygging av tidslinje med ggplot()."><img src="utdrag_files/figure-html/fig-stolper-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stolper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;6: Steg 3 i bygging av tidslinje med <code>ggplot()</code>.
@@ -464,10 +468,10 @@ Figur&nbsp;6: Steg 3 i bygging av tidslinje med <code>ggplot()</code>.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-tekst" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-tekst" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tekst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-tekst-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10"><img src="utdrag_files/figure-html/fig-tekst-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+<a href="utdrag_files/figure-html/fig-tekst-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figur&nbsp;7: Steg 4 i bygging av tidslinje med ggplot()."><img src="utdrag_files/figure-html/fig-tekst-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tekst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;7: Steg 4 i bygging av tidslinje med <code>ggplot()</code>.
@@ -488,10 +492,10 @@ Figur&nbsp;7: Steg 4 i bygging av tidslinje med <code>ggplot()</code>.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-siste" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-siste" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-siste-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-siste-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11"><img src="utdrag_files/figure-html/fig-siste-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+<a href="utdrag_files/figure-html/fig-siste-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figur&nbsp;8: Steg 5 i bygging av tidslinje med ggplot()."><img src="utdrag_files/figure-html/fig-siste-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-siste-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;8: Steg 5 i bygging av tidslinje med <code>ggplot()</code>.
@@ -512,10 +516,10 @@ Figur&nbsp;8: Steg 5 i bygging av tidslinje med <code>ggplot()</code>.
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> .<span class="dv">2</span>)</span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>bilder</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-bilder" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-bilder" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bilder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-bilder-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="quarto-lightbox-gallery-12"><img src="utdrag_files/figure-html/fig-bilder-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+<a href="utdrag_files/figure-html/fig-bilder-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figur&nbsp;9: Tidslinje laget med ggplot() — med bilder."><img src="utdrag_files/figure-html/fig-bilder-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bilder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;9: Tidslinje laget med <code>ggplot()</code> — med bilder.
@@ -546,10 +550,10 @@ Figur&nbsp;9: Tidslinje laget med <code>ggplot()</code> — med bilder.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-bilder_finpuss" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-bilder_finpuss" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bilder_finpuss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-bilder_finpuss-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-13" data-gallery="quarto-lightbox-gallery-13"><img src="utdrag_files/figure-html/fig-bilder_finpuss-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+<a href="utdrag_files/figure-html/fig-bilder_finpuss-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figur&nbsp;10: Tidslinje laget med ggplot() — med bilder og tilpasninger."><img src="utdrag_files/figure-html/fig-bilder_finpuss-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bilder_finpuss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;10: Tidslinje laget med <code>ggplot()</code> — med bilder og tilpasninger.
@@ -586,10 +590,10 @@ Figur&nbsp;10: Tidslinje laget med <code>ggplot()</code> — med bilder og tilpa
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df_konger) <span class="sc">+</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> navn, <span class="at">xend =</span> navn, <span class="at">y =</span> født, <span class="at">yend =</span> død))</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-gantt" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-gantt" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gantt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-gantt-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-14" data-gallery="quarto-lightbox-gallery-14"><img src="utdrag_files/figure-html/fig-gantt-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="utdrag_files/figure-html/fig-gantt-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figur&nbsp;11: Første steg i bygging av Gantt-diagram med ggplot()."><img src="utdrag_files/figure-html/fig-gantt-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;11: Første steg i bygging av Gantt-diagram med <code>ggplot()</code>.
@@ -604,10 +608,10 @@ Figur&nbsp;11: Første steg i bygging av Gantt-diagram med <code>ggplot()</code>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> navn, <span class="at">xend =</span> navn, <span class="at">y =</span> født, <span class="at">yend =</span> død)) <span class="sc">+</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-gantt1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-gantt1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gantt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-gantt1-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-15" data-gallery="quarto-lightbox-gallery-15"><img src="utdrag_files/figure-html/fig-gantt1-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="utdrag_files/figure-html/fig-gantt1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figur&nbsp;12: Andre steg i bygging av Gantt-diagram med ggplot()."><img src="utdrag_files/figure-html/fig-gantt1-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;12: Andre steg i bygging av Gantt-diagram med <code>ggplot()</code>.
@@ -627,10 +631,10 @@ Figur&nbsp;12: Andre steg i bygging av Gantt-diagram med <code>ggplot()</code>.
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> navn, <span class="at">xend =</span> navn, <span class="at">y =</span> født, <span class="at">yend =</span> død)) <span class="sc">+</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-gantt2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-gantt2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gantt2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-gantt2-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-16" data-gallery="quarto-lightbox-gallery-16"><img src="utdrag_files/figure-html/fig-gantt2-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="utdrag_files/figure-html/fig-gantt2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figur&nbsp;13: Gantt-diagram laget med ggplot() — med navn i endret rekkefølge."><img src="utdrag_files/figure-html/fig-gantt2-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;13: Gantt-diagram laget med <code>ggplot()</code> — med navn i endret rekkefølge.
@@ -646,10 +650,10 @@ Figur&nbsp;13: Gantt-diagram laget med <code>ggplot()</code> — med navn i endr
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> rev)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-gantt3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-gantt3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gantt3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-gantt3-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-17" data-gallery="quarto-lightbox-gallery-17"><img src="utdrag_files/figure-html/fig-gantt3-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="utdrag_files/figure-html/fig-gantt3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figur&nbsp;14: Gantt-diagram laget med ggplot() — med navn i snudd rekkefølge."><img src="utdrag_files/figure-html/fig-gantt3-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;14: Gantt-diagram laget med <code>ggplot()</code> — med navn i snudd rekkefølge.
@@ -668,10 +672,10 @@ Figur&nbsp;14: Gantt-diagram laget med <code>ggplot()</code> — med navn i snud
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> rev)</span>
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>gantt_farger</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-gantt4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-gantt4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gantt4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-gantt4-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-18" data-gallery="quarto-lightbox-gallery-18"><img src="utdrag_files/figure-html/fig-gantt4-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="utdrag_files/figure-html/fig-gantt4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figur&nbsp;15: Gantt-diagram laget med ggplot() — med modifiserte søyler."><img src="utdrag_files/figure-html/fig-gantt4-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;15: Gantt-diagram laget med <code>ggplot()</code> — med modifiserte søyler.
@@ -695,10 +699,10 @@ Figur&nbsp;15: Gantt-diagram laget med <code>ggplot()</code> — med modifiserte
 <span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>        )</span>
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>gantt_ferdig</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-gantt5" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-gantt5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gantt5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-gantt5-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-19" data-gallery="quarto-lightbox-gallery-19"><img src="utdrag_files/figure-html/fig-gantt5-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="utdrag_files/figure-html/fig-gantt5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figur&nbsp;16: Gantt-diagram laget med ggplot() — med endret bakgrunn og akse."><img src="utdrag_files/figure-html/fig-gantt5-1.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;16: Gantt-diagram laget med <code>ggplot()</code> — med endret bakgrunn og akse.
@@ -754,10 +758,10 @@ Figur&nbsp;16: Gantt-diagram laget med <code>ggplot()</code> — med endret bakg
 <span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"wheat"</span>),</span>
 <span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-gantt6" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-gantt6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gantt6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-gantt6-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-20" data-gallery="quarto-lightbox-gallery-20"><img src="utdrag_files/figure-html/fig-gantt6-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="utdrag_files/figure-html/fig-gantt6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figur&nbsp;17: Gantt-diagram laget med ggplot() — med annoteringer."><img src="utdrag_files/figure-html/fig-gantt6-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gantt6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;17: Gantt-diagram laget med <code>ggplot()</code> — med annoteringer.
@@ -807,10 +811,10 @@ Figur&nbsp;17: Gantt-diagram laget med <code>ggplot()</code> — med annoteringe
 <pre><code>Using "tree" as default layout</code></pre>
 </div>
 <div class="cell-output-display">
-<div id="fig-dendro" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-dendro" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dendro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-dendro-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-21" data-gallery="quarto-lightbox-gallery-21"><img src="utdrag_files/figure-html/fig-dendro-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="utdrag_files/figure-html/fig-dendro-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Figur&nbsp;18: Enkelt dendrogram laget med ggraph()."><img src="utdrag_files/figure-html/fig-dendro-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;18: Enkelt dendrogram laget med <code>ggraph()</code>.
@@ -828,10 +832,10 @@ Figur&nbsp;18: Enkelt dendrogram laget med <code>ggraph()</code>.
 <pre><code>Using "tree" as default layout</code></pre>
 </div>
 <div class="cell-output-display">
-<div id="fig-dendro2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-dendro2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dendro2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-dendro2-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-22" data-gallery="quarto-lightbox-gallery-22"><img src="utdrag_files/figure-html/fig-dendro2-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="utdrag_files/figure-html/fig-dendro2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Figur&nbsp;19: Dendrogram laget med ggraph() — med tekstbokser."><img src="utdrag_files/figure-html/fig-dendro2-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;19: Dendrogram laget med <code>ggraph()</code> — med tekstbokser.
@@ -849,10 +853,10 @@ Figur&nbsp;19: Dendrogram laget med <code>ggraph()</code> — med tekstbokser.
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>,<span class="fl">3.2</span>)) <span class="sc">+</span></span>
 <span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Hårfagreætta"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-dendro3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-dendro3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dendro3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-dendro3-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-23" data-gallery="quarto-lightbox-gallery-23"><img src="utdrag_files/figure-html/fig-dendro3-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="utdrag_files/figure-html/fig-dendro3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Figur&nbsp;20: Dendrogram laget med ggraph() — med ryddige tekstbokser."><img src="utdrag_files/figure-html/fig-dendro3-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;20: Dendrogram laget med <code>ggraph()</code> — med ryddige tekstbokser.
@@ -879,10 +883,10 @@ Figur&nbsp;20: Dendrogram laget med <code>ggraph()</code> — med ryddige tekstb
 <span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>,<span class="fl">3.2</span>)) <span class="sc">+</span></span>
 <span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Hårfagreætta"</span>)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-dendro4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-dendro4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dendro4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-dendro4-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-24" data-gallery="quarto-lightbox-gallery-24"><img src="utdrag_files/figure-html/fig-dendro4-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="utdrag_files/figure-html/fig-dendro4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Figur&nbsp;21: Dendrogram laget med ggraph() — med fargede bokser."><img src="utdrag_files/figure-html/fig-dendro4-1.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;21: Dendrogram laget med <code>ggraph()</code> — med fargede bokser.
@@ -897,10 +901,10 @@ Figur&nbsp;21: Dendrogram laget med <code>ggraph()</code> — med fargede bokser
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"partition"</span>) <span class="sc">+</span> </span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_diagonal</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-dendro5" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-dendro5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dendro5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-dendro5-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-25" data-gallery="quarto-lightbox-gallery-25"><img src="utdrag_files/figure-html/fig-dendro5-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="utdrag_files/figure-html/fig-dendro5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Figur&nbsp;22: Dendrogram laget med ggraph() — snudd 180 grader."><img src="utdrag_files/figure-html/fig-dendro5-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;22: Dendrogram laget med <code>ggraph()</code> — snudd 180 grader.
@@ -915,10 +919,10 @@ Figur&nbsp;22: Dendrogram laget med <code>ggraph()</code> — snudd 180 grader.
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_diagonal</span>() <span class="sc">+</span></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() </span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-dendro6" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-dendro6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dendro6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-dendro6-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-26" data-gallery="quarto-lightbox-gallery-26"><img src="utdrag_files/figure-html/fig-dendro6-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="utdrag_files/figure-html/fig-dendro6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Figur&nbsp;23: Dendrogram laget med ggraph() — snudd 90 grader."><img src="utdrag_files/figure-html/fig-dendro6-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;23: Dendrogram laget med <code>ggraph()</code> — snudd 90 grader.
@@ -933,10 +937,10 @@ Figur&nbsp;23: Dendrogram laget med <code>ggraph()</code> — snudd 90 grader.
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"dendrogram"</span>) <span class="sc">+</span> </span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_bend</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-dendro7" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-dendro7" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dendro7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-dendro7-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-27" data-gallery="quarto-lightbox-gallery-27"><img src="utdrag_files/figure-html/fig-dendro7-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="utdrag_files/figure-html/fig-dendro7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Figur&nbsp;24: Dendrogram laget med ggraph() — med hardere kurver."><img src="utdrag_files/figure-html/fig-dendro7-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;24: Dendrogram laget med <code>ggraph()</code> — med hardere kurver.
@@ -950,10 +954,10 @@ Figur&nbsp;24: Dendrogram laget med <code>ggraph()</code> — med hardere kurver
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"dendrogram"</span>) <span class="sc">+</span> </span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-dendro8" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-dendro8" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dendro8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-dendro8-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-28" data-gallery="quarto-lightbox-gallery-28"><img src="utdrag_files/figure-html/fig-dendro8-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="utdrag_files/figure-html/fig-dendro8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="Figur&nbsp;25: Dendrogram laget med ggraph() — med vinkler."><img src="utdrag_files/figure-html/fig-dendro8-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;25: Dendrogram laget med <code>ggraph()</code> — med vinkler.
@@ -968,10 +972,10 @@ Figur&nbsp;25: Dendrogram laget med <code>ggraph()</code> — med vinkler.
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(df_rel, <span class="at">layout =</span> <span class="st">"dendrogram"</span>) <span class="sc">+</span> </span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_elbow</span>()</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-dendro9" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-dendro9" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dendro9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-dendro9-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-29" data-gallery="quarto-lightbox-gallery-29"><img src="utdrag_files/figure-html/fig-dendro9-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="utdrag_files/figure-html/fig-dendro9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="Figur&nbsp;26: Dendrogram laget med ggraph() — med rette vinkler."><img src="utdrag_files/figure-html/fig-dendro9-1.png" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dendro9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;26: Dendrogram laget med <code>ggraph()</code> — med rette vinkler.
@@ -986,7 +990,7 @@ Figur&nbsp;26: Dendrogram laget med <code>ggraph()</code> — med rette vinkler.
 <p>Vi kan også bruke R til å lage prosessdiagrammer. La oss si vi ville fremme et argument om at kristendommen svekket toktkulturen i vikingsamfunnene via tre ulike mekanismer — normer mot slaveri, solidaritet med andre kristne og insentiver for handel. Da kunne det passe med et prosessdiagram som går i diamantform fra årsaken via mekanismene til utfallet; altså en boks til venstre (eller oppe), tre bokser i midten, og en boks til høyre (eller nede) (se <a href="#fig-mermaid0" class="quarto-xref">Figur&nbsp;27</a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mermaid0" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-mermaid0" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mermaid0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
@@ -1028,7 +1032,7 @@ Figur&nbsp;27: Mermaid-diagram over hypotetisk årsakskjede.
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  A --&gt; B</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mermaid1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-mermaid1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mermaid1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
@@ -1053,7 +1057,7 @@ Figur&nbsp;28: Enkelt Mermaid-diagram.
 <span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>  C --&gt; D</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mermaid2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-mermaid2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mermaid2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
@@ -1085,7 +1089,7 @@ Figur&nbsp;29: Mermaid-diagram med flere noder.
 <span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>  D[Diagram]</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mermaid3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-mermaid3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mermaid3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
@@ -1116,7 +1120,7 @@ Figur&nbsp;30: Mermaid-diagram med tekst i nodene.
 <span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>         B[Diagram]</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mermaid4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-mermaid4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mermaid4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
@@ -1150,7 +1154,7 @@ Figur&nbsp;31: Mermaid-diagram fra rotete kode.
 <span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a>  style B fill:yellow,stroke-dasharray: 5 5</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mermaid5" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-mermaid5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mermaid5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
@@ -1192,7 +1196,7 @@ Figur&nbsp;32: Mermaid-diagram med modifiserte noder.
 <span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a>  linkStyle 2 stroke:green</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mermaid6" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-mermaid6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mermaid6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
@@ -1239,7 +1243,7 @@ Figur&nbsp;33: Mermaid-diagram med modifiserte linjer.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mermaid7" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-mermaid7" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mermaid7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
@@ -1314,10 +1318,10 @@ Figur&nbsp;34: Mermaid-diagram over hypotetisk årsakskjede.
 (`geom_label()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<div id="fig-nett" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-nett" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nett-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="utdrag_files/figure-html/fig-nett-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-30" data-gallery="quarto-lightbox-gallery-30"><img src="utdrag_files/figure-html/fig-nett-1.png" class="img-fluid figure-img" width="672"></a>
+<a href="utdrag_files/figure-html/fig-nett-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="Figur&nbsp;35: Nettverksdiagram i ggraph."><img src="utdrag_files/figure-html/fig-nett-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nett-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figur&nbsp;35: Nettverksdiagram i ggraph.
@@ -1339,38 +1343,6 @@ Figur&nbsp;35: Nettverksdiagram i ggraph.
 <p>Vi har lært å lage fem forskjellige diagramtyper: tidslinjer, Gantt-diagrammer, dendrogrammer, prosessdiagrammer og nettverksdiagrammer. Vi har sett at det finnes pakker spesiallaget for én diagramtype (<code>timelineS</code>), at <code>ggraph</code> kan brukes til flere typer relasjonsdiagrammer, og at vi egentlig kan lage alle diagramtyper i <code>ggplot2</code>. På ny har vi sett at hovedutfordringen ofte er å få strukturert underlagsdataene riktig, særlig i <code>ggraph</code>, hvor vi må tenke på de nye begrepene “noder” og “kanter”. Vi har naturligvis ikke dekket alle mulige diagramtyper, men med verktøyene du nå har lært er du godt rustet til å eksperimentere videre på egen hånd. Du lurer kanskje på hvorfor vi ikke har omtalt en av de mest grunnleggende diagramtypene, nemlig <em>tabeller</em>, men det er fordi vi skal gjøre det i kapittel 13 når vi skal se på Quarto. Nå skal vi videre til et av mine favoritt-temaer i R-universet: kart.</p>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Tidslinje med <code>timelineS</code></span>
-<span class="glightbox-desc lightbox-desc-2">Tidslinje med <code>ggplot2</code>.</span>
-<span class="glightbox-desc lightbox-desc-3">Gantt-diagram.</span>
-<span class="glightbox-desc lightbox-desc-4">Dendrogram.</span>
-<span class="glightbox-desc lightbox-desc-5">Figur&nbsp;2: Tidslinje i <code>timelineS</code> uten modifikasjoner.</span>
-<span class="glightbox-desc lightbox-desc-6">Figur&nbsp;3: Tilpasset tidslinje i <code>timelineS</code>.</span>
-<span class="glightbox-desc lightbox-desc-7">Figur&nbsp;4: Steg 1 i bygging av tidslinje med <code>ggplot()</code>.</span>
-<span class="glightbox-desc lightbox-desc-8">Figur&nbsp;5: Steg 2 i bygging av tidslinje med <code>ggplot()</code>.</span>
-<span class="glightbox-desc lightbox-desc-9">Figur&nbsp;6: Steg 3 i bygging av tidslinje med <code>ggplot()</code>.</span>
-<span class="glightbox-desc lightbox-desc-10">Figur&nbsp;7: Steg 4 i bygging av tidslinje med <code>ggplot()</code>.</span>
-<span class="glightbox-desc lightbox-desc-11">Figur&nbsp;8: Steg 5 i bygging av tidslinje med <code>ggplot()</code>.</span>
-<span class="glightbox-desc lightbox-desc-12">Figur&nbsp;9: Tidslinje laget med <code>ggplot()</code> — med bilder.</span>
-<span class="glightbox-desc lightbox-desc-13">Figur&nbsp;10: Tidslinje laget med <code>ggplot()</code> — med bilder og tilpasninger.</span>
-<span class="glightbox-desc lightbox-desc-14">Figur&nbsp;11: Første steg i bygging av Gantt-diagram med <code>ggplot()</code>.</span>
-<span class="glightbox-desc lightbox-desc-15">Figur&nbsp;12: Andre steg i bygging av Gantt-diagram med <code>ggplot()</code>.</span>
-<span class="glightbox-desc lightbox-desc-16">Figur&nbsp;13: Gantt-diagram laget med <code>ggplot()</code> — med navn i endret rekkefølge.</span>
-<span class="glightbox-desc lightbox-desc-17">Figur&nbsp;14: Gantt-diagram laget med <code>ggplot()</code> — med navn i snudd rekkefølge.</span>
-<span class="glightbox-desc lightbox-desc-18">Figur&nbsp;15: Gantt-diagram laget med <code>ggplot()</code> — med modifiserte søyler.</span>
-<span class="glightbox-desc lightbox-desc-19">Figur&nbsp;16: Gantt-diagram laget med <code>ggplot()</code> — med endret bakgrunn og akse.</span>
-<span class="glightbox-desc lightbox-desc-20">Figur&nbsp;17: Gantt-diagram laget med <code>ggplot()</code> — med annoteringer.</span>
-<span class="glightbox-desc lightbox-desc-21">Figur&nbsp;18: Enkelt dendrogram laget med <code>ggraph()</code>.</span>
-<span class="glightbox-desc lightbox-desc-22">Figur&nbsp;19: Dendrogram laget med <code>ggraph()</code> — med tekstbokser.</span>
-<span class="glightbox-desc lightbox-desc-23">Figur&nbsp;20: Dendrogram laget med <code>ggraph()</code> — med ryddige tekstbokser.</span>
-<span class="glightbox-desc lightbox-desc-24">Figur&nbsp;21: Dendrogram laget med <code>ggraph()</code> — med fargede bokser.</span>
-<span class="glightbox-desc lightbox-desc-25">Figur&nbsp;22: Dendrogram laget med <code>ggraph()</code> — snudd 180 grader.</span>
-<span class="glightbox-desc lightbox-desc-26">Figur&nbsp;23: Dendrogram laget med <code>ggraph()</code> — snudd 90 grader.</span>
-<span class="glightbox-desc lightbox-desc-27">Figur&nbsp;24: Dendrogram laget med <code>ggraph()</code> — med hardere kurver.</span>
-<span class="glightbox-desc lightbox-desc-28">Figur&nbsp;25: Dendrogram laget med <code>ggraph()</code> — med vinkler.</span>
-<span class="glightbox-desc lightbox-desc-29">Figur&nbsp;26: Dendrogram laget med <code>ggraph()</code> — med rette vinkler.</span>
-<span class="glightbox-desc lightbox-desc-30">Figur&nbsp;35: Nettverksdiagram i ggraph.</span>
-</div>
 </section>
 
 
@@ -1420,18 +1392,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1463,7 +1424,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1498,7 +1499,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1773,30 +1778,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
 
 

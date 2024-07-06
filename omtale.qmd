@@ -1,0 +1,25 @@
+---
+title: Omtale
+---
+
+> R for alle bør være obligatorisk metodepensum for alle norske studenter innen samfunnsvitenskap og humaniora. På en lettlest, morsom og pedagogisk måte åpner boka øynene for alle mulighetene til ny kunnskap som ligger i koding og dataanalyse. Også etablerte forskere kan ha stor nytte av denne boka for å utforske nye muligheter i egen forskning og undervisning.
+
+::: {.right}
+[Jonas Stein](https://en.uit.no/ansatte/person?p_document_id=448042), førsteamanuensis i statsvitenskap, UiT - Norges arktiske universitet
+:::
+
+<br>
+
+> Er data science metoder relevante for humaniora og samfundsfag? R for alle efterlader ingen tvivl om at svaret er ja. Bogen dækker samtlige centrale dele af moderne samfundsvidenskabelig data science, men er samtidig så tilgængelig at alle kan begynde her. Med sin baggrund som historiker har Thomas Hegghammer det perfekte afsæt for at introducere studerende fra humaniora og samfundsfag til de endeløse analytiske muligheder R åbner.
+
+::: {.right}
+[Frederik Hjorth](https://politicalscience.ku.dk/staff/Academic_staff/?pure=en/persons/290604), førsteamanuensis i statsvitenskap, Københavns Universitet
+:::
+
+<br>
+
+> R for alle er en grundig, velskrevet og nyttig bok for alle som vil lære seg å bruke R for å arbeide med data. Boka er rik på eksempler, og viser med både enkle og mer avanserte metoder hvordan man kan analysere tekst, bilder og lyd digitalt. Hegghammer leder leseren pedagogisk gjennom hele boka, fra innføring i datamaskiners oppbygging og det første oppsettet til bruk av APIer og store språkmodeller.
+
+::: {.right}
+[Yngvil Beyer](https://www.nb.no/ansatte/yngvil-beyer/), seksjonsleder, Nasjonalbibliotekets laboratorium for digital humaniora
+:::

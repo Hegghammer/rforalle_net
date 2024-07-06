@@ -4,7 +4,20 @@ title: Om boken
 
 *R for alle* er en innføringsbok i programmeringspråket R for humanister og samfunnsvitere. Den er for deg som vil lære å programmere litt, men som ikke har behov for å gå dypt inn i informatikkens eller statistikkens verden. Boken gir en lettfattelig innføring i R med fokus på håndfaste, nyttige verktøy som du umiddelbart kan ta i bruk i ditt arbeid. Du vil lære å lage diagrammer, tegne egne kart, skrape nettsider, trekke ut tekst fra bilder, bygge nettsider, samt å analysere tekst, bilder, lyd og video på spennende nye måter. Eksemplene er hentet fra vikinghistorie, islandsk geografi, skandinavisk kvinnekamp, norske partiprogrammer, nazistpropaganda fra 1941, 1880-tallskunst og tidlige norske komponister. Boken innfører gradvis mer avanserte teknikker på en pedagogisk måte og er akkompagnert av en R-pakke som gjør det lett å laste ned eksempelkode. Boken egner seg både for fullstendige nybegynnere og for deg som allerede har programmert en stund.
 
+:::: {.columns}
+::: {.column width="16%"}
+![](images/hegghammer.jpg)
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="80%"}
+\
 *Thomas Hegghammer er professor i statsvitenskap ved Universitetet i Oxford, hvor han blant annet underviser i programmering for kvalitativ forskning. I tillegg til sin [forskning på militant islamisme]((https://hegghammer.com/)) har han publisert [artikler](https://link.springer.com/article/10.1007/s42001-021-00149-1) om optisk karaktergjenkjenning og laget R-pakken [`daiR`](https://dair.info).*
+:::
+
+---
 
 :::: {layout="[ 25, 25, 25, 25 ]"}
 
