@@ -18,7 +18,8 @@ Dette er nettsiden til læreboken *R for alle: Innføring i programmering for kv
 
 #### Nyheter
 
-- (2024-07-06) Forventet publiseringsdato: 23. juli 2024.
+- 2024-07-29: *R for alle* er nå [publisert](https://fagbokforlaget.no/R-for-alle/I9788245036862).
+- 2024-06-27: Les [bokens første 30 sider](https://issuu.com/fagbokforlaget/docs/r_for_alle_9788245036862_?fr=sMjZhZjc1MzU2MjU) på Issuu.
 
 :::
 

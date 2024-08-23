@@ -25,7 +25,7 @@ title: Om boken
 
 ### Innholdsfortegnelse
 
-1. Innledning
+1. [Innledning](https://issuu.com/fagbokforlaget/docs/r_for_alle_9788245036862_?fr=sMjZhZjc1MzU2MjU)
 2. Kjenn din PC
 3. Installér R
 4. Forstå R-grammatikken
