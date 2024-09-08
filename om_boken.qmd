@@ -16,7 +16,7 @@ title: Om boken
 \
 *Thomas Hegghammer er professor i statsvitenskap ved Universitetet i Oxford, hvor han blant annet underviser i programmering for kvalitativ forskning. I tillegg til sin [forskning på militant islamisme]((https://hegghammer.com/)) har han publisert [artikler](https://link.springer.com/article/10.1007/s42001-021-00149-1) om optisk karaktergjenkjenning og laget R-pakken [`daiR`](https://dair.info).*
 :::
-
+::::
 ---
 
 :::: {layout="[ 25, 25, 25, 25 ]"}
