@@ -1,3 +1,3 @@
 # Recreate CNAME after render
 
-write("hegghammer.net", "docs/CNAME")
+write("rforalle.net", "docs/CNAME")
