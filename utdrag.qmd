@@ -19,13 +19,13 @@ Det er ikke alt som kan fremstilles med grafer og kurver. For å visualisere kro
 
 ::: {#fig-diagrammer layout-nrow=2 fig-cap="Noen av diagrammene vi skal lage i dette kapittelet."}
 
-![Tidslinje med `timelineS`](images/kap06_tidslinje1.png)
+![Tidslinje med `timelineS`](assets/images/kap06_tidslinje1.png)
 
-![Tidslinje med `ggplot2`.](images/kap06_tidslinje2.png)
+![Tidslinje med `ggplot2`.](assets/images/kap06_tidslinje2.png)
 
-![Gantt-diagram.](images/kap06_gantt.png)
+![Gantt-diagram.](assets/images/kap06_gantt.png)
 
-![Dendrogram.](images/kap06_dendro.png)
+![Dendrogram.](assets/images/kap06_dendro.png)
 
 :::
 
@@ -38,6 +38,7 @@ Tenk deg at du er historielærer og trenger en kronologi over kjente slag i viki
 `timelineS` (merk stavingen med stor S) gjør opptegning av tidslinjer til en lek. Det eneste du trenger er en dataramme med navn på hendelser i én kolonne og datoer i den andre. Du kan lett lage en slik dataramme selv, enten ved å bygge den opp med R-kode (se kapittel 4) eller fylle inn et regneark. Men til dette eksempelet skal vi bruke en CSV-fil som jeg har forberedt og som ligger i dataarkivet under navnet "kap06_slag.csv". Vi kan laste den ned med `rforalle::hent_data()` og laste den inn i R med `read.csv()`.
 
 ```{r last_slag}
+if (!require("rforalle")) install.packages("rforalle")
 library(rforalle)
 hent_data("kap06_slag.csv")
 df_slag <- read.csv("slag.csv")
@@ -68,6 +69,7 @@ Nå som vi har en kolonne med gyldige datoer, kan vi tegne opp tidslinjen  med f
 #| out.width: "100%"
 #| fig.height: 4
 #| fig-cap: Tidslinje i `timelineS` uten modifikasjoner.
+if (!require("timelineS")) install.packages("timelineS")
 library(timelineS)
 timelineS(df_slag)
 ```
@@ -162,17 +164,20 @@ For å tegne y-aksen, bruker vi funksjonen `scale_y_continuous()` og parameteret
 
 ```{r linje_rstudio}
 #| eval: false
+if (!require("ggplot2")) install.packages("ggplot2")
 library(ggplot2)
 linje <- ggplot() +
-  geom_segment(aes(x = start, 
-                   xend = slutt, 
-                   y = 0, 
-                   yend = 0
-                   ), 
-               linewidth = 1, 
-               color = "purple", 
-               arrow = arrow(ends = "both", length = unit(0.3, "cm"))
-               ) +
+  geom_segment(
+    aes(
+      x = start,
+      xend = slutt,
+      y = 0,
+      yend = 0
+    ),
+    linewidth = 1,
+    color = "purple",
+    arrow = arrow(ends = "both", length = unit(0.3, "cm"))
+  ) +
   scale_y_continuous(limits = c(-makshøyde, makshøyde))
 linje
 ```
@@ -299,6 +304,7 @@ Femte og siste steg er finpussen. Nå kan vi fjerne rutenettet og aksene, legge 
 
 ```{r finish_rstudio}
 #| eval: false
+if (!require("ggeasy")) install.packages("ggeasy")
 library(ggeasy)
 tekst +
   theme_void() +
@@ -332,13 +338,17 @@ Som et eksempel kan vi prøve å lage en variant av samme tidslinje, denne gange
 #| label: fig-bilder
 #| fig.align: center
 #| fig-cap: Tidslinje laget med `ggplot()` --- med bilder.
+if (!require("ggimage")) install.packages("ggimage")
 library(ggimage)
 bilder <- stolper +
-  geom_image(aes(x = df_slag$år, 
-                 y = høyder, 
-                 image = df_slag$bilde
-                 ), 
-             size = .2)
+  geom_image(
+    aes(
+      x = df_slag$år,
+      y = høyder,
+      image = df_slag$bilde
+    ),
+    size = .2
+  )
 bilder
 ```
 
@@ -435,6 +445,7 @@ ggplot(data = df_konger) +
 Vi er på rett spor, men mye gjenstår. Vi ser blant annet at navnene er stokket om; R har satt dem i alfabetisk rekkefølge etter fornavn, nedenfra og opp. Dette er noe `ggplot2` gjør automatisk med tekstvektorer, og for å unngå det må vi gjøre strengene i vektoren om til det som kalles "faktorer", det vil si kategorier som ikke kan flyttes på. Dette gjøres enklest med funksjonen `fct_inorder()` fra pakken `forcats`. Den "fryser" rekkefølgen til en vektor slik den står i den opprinnelige datarammen. Vi skal komme nærmere tilbake til temaet faktorer i kapittel 11.
 
 ```{r konger_faktorer}
+if (!require("forcats")) install.packages("forcats")
 library(forcats)
 df_konger$navn <- fct_inorder(df_konger$navn)
 ```
@@ -575,8 +586,9 @@ Nøkkelfunksjonen i pakken `ggraph` heter simpelthen `ggraph()`, og den tar en d
 #| label: fig-dendro
 #| out.width: 100%
 #| fig-cap: Enkelt dendrogram laget med `ggraph()`.
+if (!require("ggraph")) install.packages("ggraph")
 library(ggraph)
-ggraph(df_rel, layout = "auto") + 
+ggraph(df_rel, layout = "auto") +
   geom_edge_diagonal()
 ```
 

@@ -6,7 +6,7 @@ title: Om boken
 
 :::: {.columns}
 ::: {.column width="16%"}
-![](images/hegghammer.jpg)
+![](assets/images/hegghammer.jpg)
 :::
 
 ::: {.column width="3%"}
@@ -46,11 +46,11 @@ title: Om boken
 
 ::: {#second-column}
 
-![Diagrammer (kapittel 6).](images/kap06_tidslinje2.png){group="galleri"}
+![Diagrammer (kapittel 6).](assets/images/kap06_tidslinje2.png){group="galleri"}
 
-![Tekstanalyse (kapittel 11)](images/kap11_wordcloud.png){group="galleri"}
+![Tekstanalyse (kapittel 11)](assets/images/kap11_wordcloud.png){group="galleri"}
 
-![Plansjer (kapittel 13)](images/kap13_plansje.png){group="galleri}
+![Plansjer (kapittel 13)](assets/images/kap13_plansje.png){group="galleri}
 
 
 
@@ -58,21 +58,21 @@ title: Om boken
 
 ::: {#third-column}
 
-![Kart (kapittel 7).](images/kap07_bykart.png){group="galleri"}
+![Kart (kapittel 7).](assets/images/kap07_bykart.png){group="galleri"}
 
-![Interaktive 3D-figurer (kapittel 14)](images/kap14_nefertiti.png){group="galleri"}
+![Interaktive 3D-figurer (kapittel 14)](assets/images/kap14_nefertiti.png){group="galleri"}
 
-![Nettskraping (kapittel 9)](images/kap09_selenium.png){group="galleri"}
+![Nettskraping (kapittel 9)](assets/images/kap09_selenium.png){group="galleri"}
 :::
 
 ::: {#third-column}
 
-![Nettsider (kapittel 14)](images/kap14_nettside.png){group="galleri"}
+![Nettsider (kapittel 14)](assets/images/kap14_nettside.png){group="galleri"}
 
 
-![Pene dokumenter (kapittel 13)](images/kap13_artikkel.png){group="galleri"}
+![Pene dokumenter (kapittel 13)](assets/images/kap13_artikkel.png){group="galleri"}
 
-![Bildeanalyse (kapittel 12)](images/kap12_objektdeteksjon.png){group="galleri"}
+![Bildeanalyse (kapittel 12)](assets/images/kap12_objektdeteksjon.png){group="galleri"}
 
 
 :::

@@ -6,7 +6,7 @@ title: Bestill boken
 
 ::: {#first-column}
 
-![](images/cover.jpg)
+![](assets/images/cover.jpg)
 
 :::
 

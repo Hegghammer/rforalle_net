@@ -2,8 +2,22 @@ project:
   type: website
   output-dir: docs
 
+  post-render: 
+    - assets/code/recreate_cname.R
+    - assets/code/check_links.R
+
+resources:
+  - "/assets/*"
+
 website:
   title: "R for alle"
+  description: ""
+  favicon: assets/images/logo.png
+  site-url: "https://rforalle.net"
+  repo-url: "https://github.com/Hegghammer/rforalle_net"
+  search: false
+  reader-mode: false
+  
   navbar:
     left:
       - href: om_boken.qmd
@@ -18,6 +32,12 @@ website:
         text: Blogg
       - href: bestill.qmd
         text: Bestill
+
+  page-footer:
+    left: |
+      [&copy; 2024-{{< var current-year >}} Thomas Hegghammer](https://hegghammer.net) <p xmlns:cc="http://creativecommons.org/ns#" >This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:15px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:15px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
+    right: |
+      [{{< fa brands github >}} kildekode]({{< var github-website-repo >}})
 lightbox: auto
 execute:
   freeze: auto 
@@ -25,7 +45,7 @@ format:
   html:
     lang: nb
     theme: cosmo
-    css: styles.css
+    css: assets/styles/styles.css
     toc: false
 
 

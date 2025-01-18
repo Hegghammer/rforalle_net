@@ -27,7 +27,7 @@ Dette er nettsiden til læreboken *R for alle: Innføring i programmering for kv
 :::
 
 ::: {.column width="35%"}
-![](images/cover.jpg)
+![](assets/images/cover.jpg)
 :::
 
 ::::
